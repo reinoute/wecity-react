@@ -1,6 +1,5 @@
 import React from 'react';
-import PoiList from './PoiList';
-import './App.css';
+import PoiList from '../PoiList/PoiList';
 
 class App extends React.Component {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {getPoi} from './Api';
+import {getPoi} from '../api';
 
 class Poi extends React.Component {
 

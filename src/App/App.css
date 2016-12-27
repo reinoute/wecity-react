@@ -1,0 +1,17 @@
+/* list by loading order */
+@import "./styles/_variables.css";
+@import "./styles/_buttons.css";
+@import "./styles/_input.css";
+@import "./styles/_layout.css";
+@import "./styles/_select.css";
+@import "./styles/_typography.css";
+
+body {
+  font-family: 'Avenir', sans-serif;
+  font-size: 100%; /* use browser font-size setting */
+  line-height: 1.5;
+  color: var(--black);
+  font-feature-settings: "kern", "liga";
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+}

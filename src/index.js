@@ -2,9 +2,11 @@ import React from 'react';
 import {render} from 'react-dom';
 import {BrowserRouter, Match, Miss} from 'react-router';
 
-import App from './App';
-import NotFound from './NotFound';
-import Poi from './Poi';
+import App from './App/App';
+import NotFound from './NotFound/NotFound';
+import Poi from './Poi/Poi';
+
+import './index.css';
 
 const Root = () => {
     return (

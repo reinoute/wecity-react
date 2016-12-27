@@ -1,6 +1,6 @@
 import React from 'react';
-import {getPois} from './Api';
-import PoiListItem from './PoiListItem';
+import {getPois} from '../api';
+import PoiListItem from '../PoiListItem/PoiListItem';
 
 class PoiList extends React.Component {
 
