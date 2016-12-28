@@ -1,11 +1,11 @@
 import React from 'react';
-import PoiList from '../PoiList/PoiList';
+import PoiListContainer from '../PoiList/PoiListContainer';
 
 class App extends React.Component {
 
     render() {
         return (
-            <PoiList/>
+            <PoiListContainer />
         )
     }
 }

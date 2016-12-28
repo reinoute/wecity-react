@@ -1,26 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {getPois} from '../api';
 
 class PoiList extends React.Component {
-
-    constructor() {
-        super();
-
-        // set initial state
-        this.state = {
-            pois: []
-        };
-    }
-
-    componentDidMount() {
-        getPois().then(items => this.setState({pois: items}));
-    }
 
     render() {
         return (
             <ul className="poi-list">
-                { this.state.pois.map(item => this.renderItem(item)) }
+                { this.props.items.map(item => this.renderItem(item))}
             </ul>
         )
     }
