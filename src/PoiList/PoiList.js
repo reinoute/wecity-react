@@ -1,6 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router';
 import {getPois} from '../api';
-import PoiListItem from '../PoiListItem/PoiListItem';
 
 class PoiList extends React.Component {
 
@@ -25,18 +25,28 @@ class PoiList extends React.Component {
     render() {
         return (
             <ul className="poi-list">
-                {
-                    this.state.pois.map(item =>
-                        <PoiListItem
-                            key={item.id}
-                            index={item.id}
-                            title={item.title}
-                            imgUrl={item.imgUrl}
-                            price={item.price}
-                            navigateToPoi={this.navigateToPoi}/>
-                    )
-                }
+                { this.state.pois.map(item => this.renderItem(item)) }
             </ul>
+        )
+    }
+
+    renderItem(item) {
+        return (
+            <li className="poi-list-item">
+                <Link to={'/poi/' + item.id} className="poi-list-item-anchor">
+                    <h1 className="poi-list-item-title">{ item.title }</h1>
+                    <div className="poi-list-item-details">
+                        <img className="poi-list-item-img"
+                             src={ item.imgUrl }
+                             width="375" height="200"
+                             alt={ item.title }/>
+                        <div className="poi-list-item-labels">
+                            <span className="poi-list-item-price">€ { item.price },-</span>
+                            <span className="poi-list-item-skip">Skip the line</span>
+                        </div>
+                    </div>
+                </Link>
+            </li>
         )
     }
 }

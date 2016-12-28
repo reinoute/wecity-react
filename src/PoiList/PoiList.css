@@ -4,3 +4,68 @@
   padding-left: 0;
   text-align: center;
 }
+
+.poi-list-item {
+  display: inline-block;
+  max-width: 375px;
+  margin-left: var(--margin-default);
+  border-radius: var(--border-radius-default);
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+
+  &:not(:last-of-type) {
+    margin-bottom: var(--margin-default);
+  }
+
+  &-anchor {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &-title {
+    margin: 0;
+    padding: var(--padding-small);
+    font-size: 1.5em;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-details {
+    position: relative; /* for absolute position of .poi-list-item-price */
+  }
+
+  &-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &-labels {
+    position: absolute;
+    top: var(--margin-default);
+    left: 0;
+    color: white;
+  }
+
+  &-price {
+    display: inline-block;
+    margin-right: var(--margin-small);
+    padding: 0.25em 0.5em;
+    border-top-right-radius: var(--border-radius-default);
+    border-bottom-right-radius: var(--border-radius-default);
+    background-color: var(--black);
+    font-weight: bold;
+  }
+
+  &-skip {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    background-color: var(--yellow);
+  }
+}
