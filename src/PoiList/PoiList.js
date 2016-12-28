@@ -7,7 +7,6 @@ class PoiList extends React.Component {
     constructor() {
         super();
 
-        this.navigateToPoi = this.navigateToPoi.bind(this);
         // set initial state
         this.state = {
             pois: []
@@ -16,10 +15,6 @@ class PoiList extends React.Component {
 
     componentDidMount() {
         getPois().then(items => this.setState({pois: items}));
-    }
-
-    navigateToPoi(index) {
-        this.context.router.transitionTo(`/poi/${index}`);
     }
 
     render() {
@@ -49,10 +44,6 @@ class PoiList extends React.Component {
             </li>
         )
     }
-}
-
-PoiList.contextTypes = {
-    router: React.PropTypes.object
 }
 
 export default PoiList;
