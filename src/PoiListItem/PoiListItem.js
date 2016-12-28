@@ -1,12 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class PoiListItem extends React.Component {
 
     render() {
         return (
             <li className="poi-list-item">
-                <button className="poi-list-item-button" type="button"
-                        onClick={() => this.props.navigateToPoi(this.props.index)}>
+                <Link to={'/poi/' + this.props.index} className="poi-list-item-anchor">
                     <h1 className="poi-list-item-title">{this.props.title}</h1>
                     <div className="poi-list-item-details">
                         <img className="poi-list-item-img"
@@ -18,7 +18,7 @@ class PoiListItem extends React.Component {
                             <span className="poi-list-item-skip">Skip the line</span>
                         </div>
                     </div>
-                </button>
+                </Link>
             </li>
         )
     }

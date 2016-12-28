@@ -10,11 +10,12 @@
     margin-bottom: var(--margin-default);
   }
 
-  &-button {
+  &-anchor {
     padding: 0;
     border: 0;
     background: transparent;
     font: inherit;
+    text-decoration: none;
     cursor: pointer;
   }
 
