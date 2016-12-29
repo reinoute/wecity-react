@@ -27,13 +27,15 @@ class Poi extends React.Component {
 
     render() {
         return (
-            <section className="poi">
+            <div className="poi">
+                <div className="poi-header">
+                    <Link to={'/'} className="poi-anchor-back"><span className="icon-chevron-left"> Back</span></Link>
+                </div>
                 <ul className="poi-gallery">
                     { this.renderImage(this.state.poi.mainImgUrl) }
                     { this.state.poi.images.map(this.renderImage) }
                 </ul>
                 <section className="poi-section">
-                    <Link to={'/'} className="poi-back">Back to list</Link>
                     <h1 className="poi-title">{ this.state.poi.title }</h1>
                     <div className="poi-opening-hours">
                         <span className="icon-open-now poi-icon"></span>
@@ -53,7 +55,11 @@ class Poi extends React.Component {
                     </div>
                     <button className="button-primary" type="button">Get Tickets</button>
                 </section>
-            </section>
+                <section className="poi-section">
+                    <h2 className="poi-subtitle">Location</h2>
+                    <p>{ this.state.poi.location }</p>
+                </section>
+            </div>
         )
     }
 

@@ -1,5 +1,21 @@
 .poi {
 
+  &-header {
+    padding-left: var(--padding-default);
+    background-color: var(--grey-darkest);
+    color: white;
+    line-height: 3;
+  }
+
+  &-anchor-back {
+    text-decoration: none;
+
+    &:hover,
+    &:visited {
+      color: white;
+    }
+  }
+
   &-gallery {
     list-style: none;
     margin-top: 0;

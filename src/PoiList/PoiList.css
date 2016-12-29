@@ -49,7 +49,7 @@
 
   &-labels {
     position: absolute;
-    top: var(--margin-default);
+    bottom: var(--margin-default);
     left: 0;
     color: white;
   }
