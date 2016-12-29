@@ -6,10 +6,16 @@ class Poi extends React.Component {
     constructor() {
         super();
 
-        this.state = {poi: {}};
+        this.state = {poi: {
+            facilities: [],
+            labels: [],
+            images: [],
+            tags: [],
+            ticketInformation: [],
+        }};
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const id = this.props.params.id;
 
         getPoi(id).then(item => {
@@ -19,11 +25,40 @@ class Poi extends React.Component {
 
     render() {
         return (
-            <div className="poi">
-                <h1>{ this.state.poi.title }</h1>
-                <img src={this.state.poi.imgUrl} alt={this.state.poi.title}/>
-                <p>{ this.state.poi.summary }</p>
-            </div>
+            <section className="poi">
+                <ul className="poi-gallery">
+                    { this.renderImage(this.state.poi.mainImgUrl) }
+                    { this.state.poi.images.map(this.renderImage) }
+                </ul>
+                <section className="poi-section">
+                    <h1 className="poi-title">{ this.state.poi.title }</h1>
+                    <div className="poi-opening-hours">
+                        <span className="icon-open-now poi-icon"></span>
+                        Open until 18:00
+                    </div>
+                    <div className="poi-tickets">
+                        <span className="icon-ticket poi-icon"></span>
+                        <ul className="poi-ticket-list">
+                            { this.state.poi.ticketInformation.map(ticket => (
+                                <li className="poi-ticket-item">
+                                    <span className="poi-ticket-label">{ ticket.label }: </span>
+                                    <span className="poi-ticket-price">{ ticket.price }</span>
+                                </li>
+                            )
+                        )}
+                        </ul>
+                    </div>
+                    <button className="button-primary" type="button">Buy tickets</button>
+                </section>
+            </section>
+        )
+    }
+
+    renderImage(url) {
+        return (
+            <li className="poi-gallery-item">
+                <img className="poi-gallery-img" src={url} alt={""} />
+            </li>
         )
     }
 }

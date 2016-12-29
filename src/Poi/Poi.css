@@ -1,3 +1,59 @@
 .poi {
-  padding: var(--margin-default);
+
+  &-gallery {
+    list-style: none;
+    margin-top: 0;
+    padding-left: 0;
+    white-space: nowrap;
+    overflow-x: scroll;
+    font-size: 0;
+  }
+
+  &-gallery-item {
+    display: inline-block;
+  }
+
+  &-gallery-img {
+    width: 80vw;
+    max-width: 100%;
+  }
+
+  &-section {
+    margin-right: var(--margin-small);
+    margin-left: var(--margin-small);
+    padding: var(--padding-default);
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+
+    > * {
+      margin-bottom: var(--margin-small);
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+  }
+
+  &-ticket-list {
+    display: inline;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &-ticket-item {
+    display: inline-block;
+    margin-right: var(--margin-default);
+  }
+
+  &-icon {
+    margin-right: var(--margin-small);
+
+    &:before {
+      font-size: 1.25em;
+    }
+  }
+
+  &-ticket-price {
+    font-weight: bold;
+  }
 }

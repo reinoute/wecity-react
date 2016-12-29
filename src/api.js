@@ -1,4 +1,5 @@
 const baseUrl = 'https://tst.wecity.amsterdam/wecity-3';
+const imgPostfix = '?variant=detail-image';
 
 const getPois = () => {
     const query = '/poi/selection?locale=en&filter_category=sales';
@@ -32,9 +33,18 @@ const getPoi = (id) => {
         .then(function (item) {
             return {
                 id: item.id,
+                type: item.type,
                 title: item.title,
-                imgUrl: baseUrl + item.media[0].url + '?variant=detail-image',
-                summary: item.summary
+                mainImgUrl: baseUrl + item.media.filter(item => item.main)[0].url + imgPostfix,
+                images: item.media.filter(item => !item.main).map(img => baseUrl + img.url + imgPostfix),
+                summary: item.summary,
+                description: item.description,
+                location: item.location,
+                categories: item.features.category,
+                facilities: item.features.facility,
+                labels: item.features.label,
+                tags: item.features.tag,
+                ticketInformation: item.ticketInformation
             };
         })
         .catch(() => console.log(`Error fetching data from ${baseUrl}`));

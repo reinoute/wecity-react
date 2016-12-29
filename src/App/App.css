@@ -1,6 +1,7 @@
 /* list by loading order */
 @import "./styles/_variables.css";
 @import "./styles/_buttons.css";
+@import "./styles/_icons.css";
 @import "./styles/_input.css";
 @import "./styles/_layout.css";
 @import "./styles/_select.css";
