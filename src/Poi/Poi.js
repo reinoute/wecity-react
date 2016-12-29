@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 import {getPoi} from '../api';
 import {formatPrice} from '../helpers';
 
@@ -32,6 +33,7 @@ class Poi extends React.Component {
                     { this.state.poi.images.map(this.renderImage) }
                 </ul>
                 <section className="poi-section">
+                    <Link to={'/'} className="poi-back">Back to list</Link>
                     <h1 className="poi-title">{ this.state.poi.title }</h1>
                     <div className="poi-opening-hours">
                         <span className="icon-open-now poi-icon"></span>
@@ -41,7 +43,7 @@ class Poi extends React.Component {
                         <span className="icon-ticket poi-icon"></span>
                         <ul className="poi-ticket-list">
                             { this.state.poi.ticketInformation.map(ticket => (
-                                <li className="poi-ticket-item">
+                                <li className="poi-ticket-item" key={ ticket.id }>
                                     <span className="poi-ticket-label">{ ticket.label }: </span>
                                     <span className="poi-ticket-price">{ formatPrice(ticket.price) }</span>
                                 </li>
@@ -55,9 +57,9 @@ class Poi extends React.Component {
         )
     }
 
-    renderImage(url) {
+    renderImage(url, index) {
         return (
-            <li className="poi-gallery-item">
+            <li className="poi-gallery-item" key={ index }>
                 <img className="poi-gallery-img" src={url} alt={""} />
             </li>
         )
