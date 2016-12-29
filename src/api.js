@@ -16,7 +16,8 @@ const getPois = () => {
                     id: item.id,
                     title: item.title,
                     imgUrl: baseUrl + item.media[0].url + '?variant=detail-image',
-                    price: item.ticketInformation[0].price
+                    price: item.ticketInformation[0].price,
+                    skipTheLine: item.ticketInformation[0].information.indexOf('avoid the standard waiting line') >= 0
                 }
             })
         })
@@ -44,7 +45,8 @@ const getPoi = (id) => {
                 facilities: item.features.facility,
                 labels: item.features.label,
                 tags: item.features.tag,
-                ticketInformation: item.ticketInformation
+                ticketInformation: item.ticketInformation,
+                skipTheLine: item.ticketInformation[0].information.indexOf('avoid the standard waiting line') >= 0
             };
         })
         .catch(() => console.log(`Error fetching data from ${baseUrl}`));

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import {formatPrice} from '../helpers';
 
 const PoiList = (props) => (
     <ul className="poi-list">
@@ -14,8 +15,8 @@ const PoiList = (props) => (
                                  width="375" height="200"
                                  alt={ item.title }/>
                             <div className="poi-list-item-labels">
-                                <span className="poi-list-item-price">€ { item.price },-</span>
-                                <span className="poi-list-item-skip">Skip the line</span>
+                                <span className="poi-list-item-price">{ formatPrice(item.price) }</span>
+                                { item.skipTheLine && <span className="poi-list-item-skip">Skip the line</span> }
                             </div>
                         </div>
                     </Link>

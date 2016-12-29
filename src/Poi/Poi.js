@@ -1,5 +1,6 @@
 import React from 'react';
 import {getPoi} from '../api';
+import {formatPrice} from '../helpers';
 
 class Poi extends React.Component {
 
@@ -42,13 +43,13 @@ class Poi extends React.Component {
                             { this.state.poi.ticketInformation.map(ticket => (
                                 <li className="poi-ticket-item">
                                     <span className="poi-ticket-label">{ ticket.label }: </span>
-                                    <span className="poi-ticket-price">{ ticket.price }</span>
+                                    <span className="poi-ticket-price">{ formatPrice(ticket.price) }</span>
                                 </li>
                             )
                         )}
                         </ul>
                     </div>
-                    <button className="button-primary" type="button">Buy tickets</button>
+                    <button className="button-primary" type="button">Get Tickets</button>
                 </section>
             </section>
         )
