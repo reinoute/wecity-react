@@ -16,33 +16,41 @@
     }
   }
 
-  &-gallery {
+  &-carousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &-carousel-list {
     list-style: none;
     margin-top: 0;
     padding-left: 0;
     white-space: nowrap;
-    overflow-x: scroll;
+    overflow-x: hidden;
     font-size: 0;
+    text-align: right;
   }
 
-  &-gallery-item {
+  &-carousel-item {
     display: inline-block;
   }
 
-  &-gallery-img {
-    width: 80vw;
-    max-width: 100%;
+  &-carousel-img {
+    width: 100%;
   }
 
-  &-section {
+  &-body {
     margin-right: var(--margin-small);
     margin-left: var(--margin-small);
     padding: var(--padding-default);
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+  }
 
-    > * {
-      margin-bottom: var(--margin-default);
+  &-summary {
+
+    & > * {
+      margin-bottom: var(--margin-small);
     }
   }
 
@@ -53,6 +61,7 @@
   &-ticket-list {
     display: inline;
     list-style: none;
+    margin-bottom: var(--margin-small);
     padding-left: 0;
   }
 
@@ -76,5 +85,13 @@
 
   &-ticket-price {
     font-weight: bold;
+  }
+
+  &-subtitle {
+    margin-bottom: var(--margin-small);
+  }
+
+  &-address {
+    font-style: normal;
   }
 }
