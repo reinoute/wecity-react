@@ -1,5 +1,6 @@
 /* list by loading order */
 @import "./styles/_variables.css";
+@import "./styles/_mixins.css";
 @import "./styles/_buttons.css";
 @import "./styles/_icons.css";
 @import "./styles/_input.css";

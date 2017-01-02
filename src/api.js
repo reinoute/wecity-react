@@ -37,7 +37,7 @@ const getPoi = (id) => {
                 type: item.type,
                 title: item.title,
                 mainImgUrl: baseUrl + item.media.filter(item => item.main)[0].url + imgPostfix,
-                images: item.media.filter(item => !item.main).map(img => baseUrl + img.url + imgPostfix),
+                images: item.media.map(img => baseUrl + img.url + imgPostfix),
                 summary: item.summary,
                 description: item.description,
                 location: item.location,
