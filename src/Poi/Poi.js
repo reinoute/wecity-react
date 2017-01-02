@@ -9,6 +9,7 @@ class Poi extends React.Component {
         super();
 
         this.nextImage = this.nextImage.bind(this);
+        this.renderImage = this.renderImage.bind(this);
 
         this.state = {
             imageIndex: 0,
@@ -31,8 +32,6 @@ class Poi extends React.Component {
     }
 
     nextImage() {
-
-        
         const count = this.state.poi.images.length + 1; // add main image to count
 
         if (this.state.imageIndex <= count) {
@@ -42,10 +41,6 @@ class Poi extends React.Component {
         } else {
             this.setState({imageIndex: 0});
         }
-
-        console.log('-RE- index', this.state.imageIndex);
-        console.log('-RE- count', count);
-
     }
 
     render() {
@@ -58,14 +53,15 @@ class Poi extends React.Component {
                 </div>
                 <div className="poi-carousel">
                     <button className="poi-carousel-button-previous" type="button">
-                        <span className="icon-chevron-left">Previous</span>
+                        <span className="icon-chevron-left"></span>
+                        <span className="poi-carousel-button-text">Previous</span>
                     </button>
-                    <ul className="poi-carousel-list" style={ {marginLeft: this.state.imageIndex * -100 + "%"} }>
-                        { this.renderImage(this.state.poi.mainImgUrl) }
+                    <ul className="poi-carousel-list">
                         { this.state.poi.images.map(this.renderImage) }
                     </ul>
                     <button className="poi-carousel-button-next" type="button" onClick={this.nextImage}>
-                        <span className="icon-chevron-right">Next</span>
+                        <span className="icon-chevron-right"></span>
+                        <span className="poi-carousel-button-text">Next</span>
                     </button>
                 </div>
                 <section className="poi-body">
@@ -110,7 +106,7 @@ class Poi extends React.Component {
 
     renderImage(url, index) {
         return (
-            <li className="poi-carousel-item" key={ index }>
+            <li className="poi-carousel-item" key={ index } style={ { transform: "translateX(-" + this.state.imageIndex * 100 +"%)"} }>
                 <img className="poi-carousel-img" src={url} alt={""} />
             </li>
         )
