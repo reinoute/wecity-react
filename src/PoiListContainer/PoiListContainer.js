@@ -1,5 +1,5 @@
 import React from 'react';
-import PoiList from './PoiList';
+import PoiList from '../PoiList/PoiList';
 import {getPois} from '../api';
 
 class PoiListContainer extends React.Component {
