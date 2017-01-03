@@ -59,3 +59,13 @@ h6,
     font-family: var(--heading-font);
     font-size: 1em;
 }
+
+body {
+    font-family: 'Avenir', sans-serif;
+    font-size: 100%; /* use browser font-size setting */
+    line-height: 1.5;
+    color: var(--body-font-color);
+    font-feature-settings: "kern", "liga";
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+}

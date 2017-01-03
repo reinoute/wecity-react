@@ -23,6 +23,7 @@
 
     --heading-font: 'Core Mellow', Helvetica;
     --body-font: 'Avenir', sans-serif;
+    --body-font-color: var(--black);
 
     --margin-small: 8px;
     --margin-default: 16px;
