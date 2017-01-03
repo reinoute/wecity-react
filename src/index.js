@@ -4,7 +4,7 @@ import {BrowserRouter, Match, Miss} from 'react-router';
 
 import App from './App/App';
 import NotFound from './NotFound/NotFound';
-import Poi from './Poi/Poi';
+import PoiContainer from './PoiContainer/PoiContainer';
 
 import './index.css';
 
@@ -13,7 +13,7 @@ const Root = () => {
         <BrowserRouter>
             <div>
                 <Match exactly pattern="/" component={App}/>
-                <Match exactly pattern="/poi/:id" component={Poi}/>
+                <Match exactly pattern="/poi/:id" component={PoiContainer}/>
                 <Miss component={NotFound}/>
             </div>
         </BrowserRouter>
