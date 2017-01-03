@@ -8,6 +8,7 @@ class Poi extends React.Component {
     constructor() {
         super();
 
+        this.previousImage = this.previousImage.bind(this);
         this.nextImage = this.nextImage.bind(this);
         this.renderImage = this.renderImage.bind(this);
 
@@ -31,15 +32,19 @@ class Poi extends React.Component {
         })
     }
 
+    previousImage() {
+        if (this.state.imageIndex > 0) {
+            const newIndex = this.state.imageIndex - 1;
+            this.setState({imageIndex: newIndex});
+        }
+    }
+
     nextImage() {
-        const count = this.state.poi.images.length + 1; // add main image to count
+        const totalCount = this.state.poi.images.length -1;
 
-        if (this.state.imageIndex <= count) {
+        if (this.state.imageIndex < totalCount) {
             const newIndex = this.state.imageIndex + 1;
-
-            this.setState({ imageIndex: newIndex });
-        } else {
-            this.setState({imageIndex: 0});
+            this.setState({imageIndex: newIndex});
         }
     }
 
@@ -52,7 +57,7 @@ class Poi extends React.Component {
                     </Link>
                 </div>
                 <div className="poi-carousel">
-                    <button className="poi-carousel-button-previous" type="button">
+                    <button className="poi-carousel-button-previous" type="button" onClick={this.previousImage}>
                         <span className="icon-chevron-left"></span>
                         <span className="poi-carousel-button-text">Previous</span>
                     </button>
