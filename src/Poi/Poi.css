@@ -1,13 +1,15 @@
 .poi {
 
   &-header {
-    padding-left: var(--padding-default);
     background-color: var(--grey-darkest);
     color: white;
     line-height: 3;
   }
 
   &-anchor-back {
+    display: inline-block;
+    padding-left: var(--padding-default);
+    padding-right: var(--padding-large);
     text-decoration: none;
 
     &:hover,
@@ -63,11 +65,8 @@
   }
 
   &-body {
-    margin-right: var(--margin-small);
-    margin-left: var(--margin-small);
     padding: var(--padding-default);
     background-color: white;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
   }
 
   &-summary {
@@ -79,6 +78,51 @@
 
   &-title {
     margin-top: 0;
+  }
+
+  .button-primary {
+    margin-bottom: 16px;
+  }
+
+  &-skiptheline {
+    position: relative; /* for absolute position of triangle */
+    padding: var(--padding-default);
+    border: 1px solid var(--blue-lighter);
+    background-color: var(--blue-lightest);
+    max-width: 25em;
+
+    /* caret */
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: transparent;
+    }
+
+    &:before {
+      top: -32px;
+      left: 16px;
+      border-width: 16px;
+      border-bottom-color: var(--blue-lighter);
+      /*z-index: -2; !* show beneath get tickets button *!*/
+    }
+
+    /* caret borer */
+    &:after {
+      top: -28px;
+      left: 18px;
+      border-width: 14px;
+      border-bottom-color: var(--blue-lightest);
+      /*z-index: -1; !* show beneath get tickets button *!*/
+    }
+  }
+
+  &-skiptheline-title {
+    font-weight: bold;
   }
 
   &-ticket-list {
@@ -114,7 +158,41 @@
     margin-bottom: var(--margin-small);
   }
 
-  &-address {
-    font-style: normal;
+  &-about-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &-about-item {
+    position: relative; /* for absolute position of icon */
+    padding-left: var(--padding-large);
+
+    &:not(:last-of-type) {
+      margin-bottom: var(--margin-small);
+    }
+
+    &:before {
+      position: absolute;
+      left: 0;
+      font-size: 1.25em;
+    }
+  }
+
+  &-type {
+    text-transform: uppercase;
+  }
+
+  &-tag-list {
+    display: inline;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &-tag-item {
+    display: inline;
+
+    &:not(:last-of-type):after {
+      content: ", ";
+    }
   }
 }
