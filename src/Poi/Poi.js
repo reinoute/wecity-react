@@ -1,4 +1,5 @@
 import React from 'react';
+import CarouselContainer from '../CarouselContainer/CarouselContainer';
 import {Link} from 'react-router';
 import {getPoi} from '../api';
 import {formatPrice} from '../helpers';
@@ -51,6 +52,7 @@ class Poi extends React.Component {
     render() {
         return (
             <div className="poi">
+
                 <div className="poi-header">
                     <Link to={'/'} className="poi-anchor-back"><
                         span className="icon-chevron-left"> Back</span>
@@ -102,12 +104,12 @@ class Poi extends React.Component {
                         <p className="poi-description">
                             { this.state.poi.summary }
                         </p>
-                        <p className="poi-tags">
+                        <div className="poi-tags">
                             <strong>Tags: </strong>
                             <ul className="poi-tag-list">
-                                { this.state.poi.tags.map(tag => <li className="poi-tag-item">{ tag.value }</li>) }
+                                { this.state.poi.tags.map((tag, index) => <li className="poi-tag-item" key={index}>{ tag.value }</li>) }
                             </ul>
-                        </p>
+                        </div>
                         <ul className="poi-about-list">
                             <li className={"poi-about-item poi-type icon-" + this.state.poi.type}>{ this.state.poi.type }</li>
                             <li className="poi-about-item icon-mapswitch">{ this.state.poi.location.address } <a
@@ -116,6 +118,7 @@ class Poi extends React.Component {
                         </ul>
                     </section>
                 </section>
+                <CarouselContainer items={this.state.poi.images}/>
             </div>
         )
     }
