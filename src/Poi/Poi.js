@@ -9,12 +9,7 @@ class Poi extends React.Component {
     constructor() {
         super();
 
-        this.previousImage = this.previousImage.bind(this);
-        this.nextImage = this.nextImage.bind(this);
-        this.renderImage = this.renderImage.bind(this);
-
         this.state = {
-            imageIndex: 0,
             poi: {
                 facilities: [],
                 labels: [],
@@ -33,22 +28,6 @@ class Poi extends React.Component {
         })
     }
 
-    previousImage() {
-        if (this.state.imageIndex > 0) {
-            const newIndex = this.state.imageIndex - 1;
-            this.setState({imageIndex: newIndex});
-        }
-    }
-
-    nextImage() {
-        const totalCount = this.state.poi.images.length -1;
-
-        if (this.state.imageIndex < totalCount) {
-            const newIndex = this.state.imageIndex + 1;
-            this.setState({imageIndex: newIndex});
-        }
-    }
-
     render() {
         return (
             <div className="poi">
@@ -58,19 +37,7 @@ class Poi extends React.Component {
                         span className="icon-chevron-left"> Back</span>
                     </Link>
                 </div>
-                <div className="poi-carousel">
-                    <button className="poi-carousel-button-previous" type="button" onClick={this.previousImage}>
-                        <span className="icon-chevron-left"></span>
-                        <span className="poi-carousel-button-text">Previous</span>
-                    </button>
-                    <ul className="poi-carousel-list">
-                        { this.state.poi.images.map(this.renderImage) }
-                    </ul>
-                    <button className="poi-carousel-button-next" type="button" onClick={this.nextImage}>
-                        <span className="icon-chevron-right"></span>
-                        <span className="poi-carousel-button-text">Next</span>
-                    </button>
-                </div>
+                <CarouselContainer items={this.state.poi.images}/>
                 <section className="poi-body">
                     <section className="poi-summary">
                         <h1 className="poi-title">{ this.state.poi.title }</h1>
@@ -118,16 +85,7 @@ class Poi extends React.Component {
                         </ul>
                     </section>
                 </section>
-                <CarouselContainer items={this.state.poi.images}/>
             </div>
-        )
-    }
-
-    renderImage(url, index) {
-        return (
-            <li className="poi-carousel-item" key={ index } style={ { transform: "translateX(-" + this.state.imageIndex * 100 +"%)"} }>
-                <img className="poi-carousel-img" src={url} alt={""} />
-            </li>
         )
     }
 }
