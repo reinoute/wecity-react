@@ -1,4 +1,4 @@
-import {getPois} from './api';
+import {fetchTopPois} from './api';
 import localforage from 'localforage';
 
 const TOP_POIS_KEY = "TOP_POIS";
@@ -12,7 +12,7 @@ const getTopPois = () => {
             return localforage.getItem(TOP_POIS_KEY);
         } else {
             // otherwise fetch new data, store it locally and update timestamp
-            return getPois().then(items => {
+            return fetchTopPois().then(items => {
                 return localforage.setItem(TOP_POIS_KEY, items).then((items) => {
                     return localforage.setItem(LAST_UPDATED_KEY, Date.now()).then(() => {
                         return items;

@@ -1,7 +1,7 @@
 const baseUrl = 'https://tst.wecity.amsterdam/wecity-3';
 const imgPostfix = '?variant=detail-image';
 
-const getPois = () => {
+const fetchTopPois = () => {
     const query = '/poi/selection?locale=en&filter_category=sales';
 
     return fetch(baseUrl + query)
@@ -52,4 +52,4 @@ const getPoi = (id) => {
         .catch(() => console.log(`Error fetching data from ${baseUrl}`));
 }
 
-export {getPois, getPoi};
+export {fetchTopPois, getPoi};
