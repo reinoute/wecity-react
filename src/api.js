@@ -1,6 +1,19 @@
 const baseUrl = 'https://tst.wecity.amsterdam/wecity-3';
 const imgPostfix = '?variant=detail-image';
 
+const fetchAllPois = () => {
+    const query = '/poi/top?count=5000&mode=LOCAL&locale=en&travelMode=walking';
+
+    return fetch(baseUrl + query)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            return data;
+        })
+        .catch(() => console.log(`Error fetching data from ${baseUrl}`));
+}
+
 const fetchTopPois = () => {
     const query = '/poi/selection?locale=en&filter_category=sales';
 
@@ -52,4 +65,4 @@ const getPoi = (id) => {
         .catch(() => console.log(`Error fetching data from ${baseUrl}`));
 }
 
-export {fetchTopPois, getPoi};
+export {fetchAllPois, fetchTopPois, getPoi};
