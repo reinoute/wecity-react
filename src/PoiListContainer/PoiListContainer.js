@@ -1,6 +1,6 @@
 import React from 'react';
 import PoiList from '../PoiList/PoiList';
-import {getPois} from '../api';
+import {getTopPois} from '../storage';
 
 class PoiListContainer extends React.Component {
 
@@ -14,7 +14,7 @@ class PoiListContainer extends React.Component {
     }
 
     componentDidMount() {
-        getPois().then(items => this.setState({pois: items}));
+        getTopPois().then(items => this.setState({pois: items}));
     }
 
     render() {
