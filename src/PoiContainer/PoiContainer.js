@@ -1,6 +1,6 @@
 import React from 'react';
 import Poi from '../Poi/Poi';
-import {getPoi} from '../api';
+import {getPoiById} from '../storage';
 
 class PoiContainer extends React.Component {
 
@@ -22,7 +22,7 @@ class PoiContainer extends React.Component {
     componentDidMount() {
         const id = this.props.params.id;
 
-        getPoi(id).then(item => {
+        getPoiById(id).then(item => {
             this.setState({details: item});
         })
     }

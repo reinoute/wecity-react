@@ -33,7 +33,7 @@ const Poi = (props) => (
                 { props.details.skipTheLine &&
                     <div className="poi-skiptheline">
                         <span className="poi-skiptheline-title">Skip the line</span>
-                        <p>During checkout you can choose the time you want to enter the museum.
+                        <p>Choose the time you want to enter the museum during checkout.
                             You can use a special lane to access the museum to avoid standing in line.</p>
                     </div>
                 }
@@ -53,9 +53,9 @@ const Poi = (props) => (
                 </div>
                 <ul className="poi-about-list">
                     <li className={"poi-about-item poi-type icon-" + props.details.type}>{ props.details.type }</li>
-                    <li className="poi-about-item icon-mapswitch">{ props.details.location.address } <a
-                        href={ 'https://www.google.com/maps/place/' + props.details.location.coordinates[1] + ',' + props.details.location.coordinates[0] }>Show
-                        on map</a></li>
+                    {/*<li className="poi-about-item icon-mapswitch">{ props.details.location.address } <a*/}
+                        {/*href={ 'https://www.google.com/maps/place/' + props.details.location.coordinates[1] + ',' + props.details.location.coordinates[0] }>Show*/}
+                        {/*on map</a></li>*/}
                 </ul>
             </section>
         </section>
