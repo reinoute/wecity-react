@@ -1,6 +1,6 @@
 import React from 'react';
 import PoiList from '../PoiList/PoiList';
-import {getTopPois} from '../storage';
+import {getPois} from '../storage';
 
 class PoiListContainer extends React.Component {
 
@@ -14,7 +14,9 @@ class PoiListContainer extends React.Component {
     }
 
     componentDidMount() {
-        getTopPois().then(items => this.setState({pois: items}));
+        const bookableOnly = true;
+
+        getPois(bookableOnly).then(items => this.setState({pois: items}));
     }
 
     render() {

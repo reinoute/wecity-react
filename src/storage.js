@@ -14,7 +14,7 @@ const updateData = () =>
             })
             .catch(error => console.log('Error updating local data: ', error))
 
-const getAllPois = () =>
+const getPois = (bookableOnly = false) =>
     Promise.all([
         localforage.getItem(ALL_POIS_KEY),
         localforage.getItem(LAST_UPDATED_KEY)
@@ -23,24 +23,8 @@ const getAllPois = () =>
         const lastUpdated = values[1];
 
         if (pois && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY)
-            return localforage.getItem(ALL_POIS_KEY);
+            return bookableOnly ? pois.filter(item => item.price > 0) : pois;
         else return updateData();
-    })
-
-const getTopPois = () =>
-    Promise.all([
-        localforage.getItem(ALL_POIS_KEY),
-        localforage.getItem(LAST_UPDATED_KEY)
-    ]).then(values => {
-        const pois = values[0];
-        const lastUpdated = values[1];
-
-        if (pois && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY) {
-            return localforage.getItem(ALL_POIS_KEY).then(data => {
-                return data.filter(item => item.price > 0)
-            })
-        }
-        else return updateData().then(data => data[1])
     })
 
 const getPoiById = (id) => {
@@ -69,4 +53,4 @@ const getPoiById = (id) => {
     })
 }
 
-export {getAllPois, getTopPois, getPoiById};
+export {getPois, getPoiById};
