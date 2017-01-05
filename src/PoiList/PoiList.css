@@ -1,6 +1,6 @@
 .poi-list {
   list-style: none;
-  margin: var(--margin-default) var(--margin-default) 0 0;
+  margin: var(--margin-default) var(--margin-default) var(--margin-default) 0;
   padding-left: 0;
   text-align: center;
 }
@@ -68,6 +68,6 @@
     display: inline-block;
     padding: 0.25em 0.5em;
     background-color: var(--yellow);
-    color: var(--body-font-color);
+    color: var(--body-font-color)
   }
 }

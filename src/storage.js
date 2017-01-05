@@ -22,9 +22,10 @@ const getPois = (bookableOnly = false) =>
         const pois = values[0];
         const lastUpdated = values[1];
 
-        if (pois && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY)
+        if (pois && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY) {
             return bookableOnly ? pois.filter(item => item.price > 0) : pois;
-        else return updatePois();
+        } else return updatePois().then(updatedPois =>
+            bookableOnly ? updatedPois.filter(item => item.price > 0) : updatedPois);
     });
 
 const getPoiById = (id) =>
