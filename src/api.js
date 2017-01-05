@@ -2,7 +2,7 @@ const baseUrl = 'https://tst.wecity.amsterdam/wecity-3';
 const imgVariant = '?variant=detail-image';
 
 const fetchAllPois = () => {
-    const query = '/poi/top?count=5000&mode=LOCAL&locale=en&travelMode=walking';
+    const query = '/poi/search?count=5000&mode=LOCAL&locale=en&travelMode=walking';
 
     return fetch(baseUrl + query)
         .then(function (response) {
