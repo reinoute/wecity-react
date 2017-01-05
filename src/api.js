@@ -37,32 +37,4 @@ const fetchAllPois = () => {
         .catch(() => console.log(`Error fetching data from ${baseUrl}`));
 }
 
-const getPoi = (id) => {
-    const query = '/poi/' + id;
-
-    return fetch(baseUrl + query)
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (item) {
-            return {
-                id: item.id,
-                type: item.type,
-                title: item.title,
-                mainImgUrl: baseUrl + item.media.filter(item => item.main)[0].url + imgVariant,
-                images: item.media.map(img => baseUrl + img.url + imgVariant),
-                summary: item.summary,
-                description: item.description,
-                location: item.location,
-                categories: item.features.category,
-                facilities: item.features.facility,
-                labels: item.features.label,
-                tags: item.features.tag,
-                ticketInformation: item.ticketInformation,
-                skipTheLine: item.ticketInformation[0].information.indexOf('avoid the standard waiting line') >= 0
-            };
-        })
-        .catch(() => console.log(`Error fetching data from ${baseUrl}`));
-}
-
-export {fetchAllPois, getPoi};
+export {fetchAllPois};
