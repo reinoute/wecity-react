@@ -1,0 +1,47 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+
+  & button {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.51);
+    color: white;
+    font-size: 3em;
+    cursor: pointer;
+  }
+
+  &-button-text {
+    @apply --sr-only;
+  }
+
+  &-button-next {
+    right: 0;
+  }
+
+  &-list {
+    list-style: none;
+    margin-top: 0;
+    padding-left: 0;
+    white-space: nowrap;
+    overflow-x: hidden;
+    font-size: 0;
+  }
+
+  &-item {
+    display: inline-block;
+    transition: transform 0.15s ease-out;
+  }
+
+  &-img {
+    width: 100%;
+  }
+}

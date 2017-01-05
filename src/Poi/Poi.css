@@ -18,54 +18,6 @@
     }
   }
 
-  &-carousel {
-    position: relative;
-    overflow: hidden;
-
-    & button {
-      width: 4rem;
-      height: 4rem;
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      bottom: 0;
-      padding: 0;
-      margin: auto;
-      background-color: transparent;
-      border: none;
-      background-color: rgba(0, 0, 0, 0.51);
-      color: white;
-      font-size: 3em;
-      cursor: pointer;
-    }
-  }
-
-  &-carousel-button-text {
-    @apply --sr-only;
-  }
-
-  &-carousel-button-next {
-    right: 0;
-  }
-
-  &-carousel-list {
-    list-style: none;
-    margin-top: 0;
-    padding-left: 0;
-    white-space: nowrap;
-    overflow-x: hidden;
-    font-size: 0;
-  }
-
-  &-carousel-item {
-    display: inline-block;
-    transition: transform 0.15s ease-out;
-  }
-
-  &-carousel-img {
-    width: 100%;
-  }
-
   &-body {
     max-width: var(--container-width);
     margin: 0 auto;
