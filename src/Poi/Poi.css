@@ -43,8 +43,8 @@
   &-skiptheline {
     position: relative; /* for absolute position of triangle */
     padding: var(--padding-default);
-    border: 1px solid var(--blue-lighter);
-    background-color: var(--blue-lightest);
+    border: 1px solid var(--yellow);
+    background-color: var(--yellow-lightest);
     max-width: 25em;
 
     /* caret */
@@ -63,8 +63,7 @@
       top: -32px;
       left: 16px;
       border-width: 16px;
-      border-bottom-color: var(--blue-lighter);
-      /*z-index: -2; !* show beneath get tickets button *!*/
+      border-bottom-color: var(--yellow);
     }
 
     /* caret borer */
@@ -72,8 +71,7 @@
       top: -28px;
       left: 18px;
       border-width: 14px;
-      border-bottom-color: var(--blue-lightest);
-      /*z-index: -1; !* show beneath get tickets button *!*/
+      border-bottom-color: var(--yellow-lightest);
     }
   }
 

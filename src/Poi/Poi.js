@@ -33,7 +33,7 @@ const Poi = (props) => (
                 { props.details.skipTheLine &&
                     <div className="poi-skiptheline">
                         <span className="poi-skiptheline-title">Skip the line</span>
-                        <p>Choose the time you want to enter the museum during checkout.
+                        <p>During checkout you will choose the time you want to enter the museum.
                             You can use a special lane to access the museum to avoid standing in line.</p>
                     </div>
                 }
