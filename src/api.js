@@ -37,33 +37,6 @@ const fetchAllPois = () => {
         .catch(() => console.log(`Error fetching data from ${baseUrl}`));
 }
 
-const fetchTopPois = () => {
-    const query = '/poi/selection?locale=en&filter_category=sales';
-
-    return fetch(baseUrl + query)
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data) {
-            const pois = data[0].related;
-
-            return pois.map(item => {
-                const images = item.media;
-                const mainImg = images ? images[0] : '';
-                const info = item.ticketInformation ? item.ticketInformation[0] : '';
-
-                return {
-                    id: item.id,
-                    title: item.title,
-                    imgUrl: (mainImg && mainImg.url) ? baseUrl + mainImg.url + imgVariant : '',
-                    price: (info && info.price) ? info.price : '',
-                    skipTheLine: (info && info.information) ? info.information.indexOf('avoid the standard waiting line') >= 0 : false
-                }
-            })
-        })
-        .catch(() => console.log(`Error fetching data from ${baseUrl}`));
-}
-
 const getPoi = (id) => {
     const query = '/poi/' + id;
 
@@ -92,4 +65,4 @@ const getPoi = (id) => {
         .catch(() => console.log(`Error fetching data from ${baseUrl}`));
 }
 
-export {fetchAllPois, fetchTopPois, getPoi};
+export {fetchAllPois, getPoi};

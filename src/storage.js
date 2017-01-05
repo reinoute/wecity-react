@@ -1,28 +1,18 @@
-import {fetchTopPois, fetchAllPois} from './api';
+import {fetchAllPois} from './api';
 import localforage from 'localforage';
 
-const TOP_POIS_KEY = "TOP_POIS";
 const ALL_POIS_KEY = "POIS";
 const LAST_UPDATED_KEY = "LAST_UPDATED";
 const ONE_DAY = 1000 * 60 * 60 * 24; // number of milliseconds in one day
 
 const updateData = () =>
-    Promise.all([
-        // fetch data from api
-        fetchAllPois(),
-        fetchTopPois()])
-        .then(data =>
-            // then store it in local storage
-            Promise.all([
-                localforage.setItem(ALL_POIS_KEY, data[0]),
-                localforage.setItem(TOP_POIS_KEY, data[1])
-            ])
-                .then(data =>
-                    // update the timestamp
-                    localforage.setItem(LAST_UPDATED_KEY, Date.now())
-                        .then(() => data)
-                )
-                .catch(error => console.log('Error updating local data: ', error)));
+        fetchAllPois() // fetch data from api
+            .then(data => localforage.setItem(ALL_POIS_KEY, data)) // store data in local storage
+            .then(data => {
+                localforage.setItem(LAST_UPDATED_KEY, Date.now()); // update timestamp
+                return data;
+            })
+            .catch(error => console.log('Error updating local data: ', error))
 
 const getAllPois = () =>
     Promise.all([
@@ -34,7 +24,7 @@ const getAllPois = () =>
 
         if (pois && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY)
             return localforage.getItem(ALL_POIS_KEY);
-        else return updateData().then(data => data[0])
+        else return updateData();
     })
 
 const getTopPois = () =>
