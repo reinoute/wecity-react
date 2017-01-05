@@ -23,12 +23,14 @@
     overflow: hidden;
 
     & button {
-      width: 3rem;
+      width: 4rem;
+      height: 4rem;
       position: absolute;
       z-index: 1;
       top: 0;
       bottom: 0;
       padding: 0;
+      margin: auto;
       background-color: transparent;
       border: none;
       background-color: rgba(0, 0, 0, 0.51);
