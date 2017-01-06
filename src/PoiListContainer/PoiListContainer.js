@@ -14,9 +14,10 @@ class PoiListContainer extends React.Component {
     }
 
     componentDidMount() {
-        const bookableOnly = true;
+        const onlyBookable = this.props.onlyBookable;
 
-        getPois(bookableOnly).then(items => this.setState({pois: items}));
+        getPois(onlyBookable)
+            .then(items => this.setState({pois: items}));
     }
 
     render() {

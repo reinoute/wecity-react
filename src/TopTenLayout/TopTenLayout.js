@@ -8,7 +8,7 @@ class TopTenLayout extends React.Component {
         return (
             <div>
                 <NavigationContainer path={this.props.pathname}/>
-                <PoiListContainer/>
+                <PoiListContainer onlyBookable={true}/>
             </div>
         )
     }

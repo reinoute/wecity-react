@@ -1,6 +1,6 @@
 import React from 'react';
 import NavigationContainer from '../NavigationContainer/NavigationContainer';
-import PoiListContainer from '../PoiListContainer/PoiListContainer';
+import FiltersContainer from '../FiltersContainer/FiltersContainer';
 
 class AllPoisLayout extends React.Component {
 
@@ -8,7 +8,7 @@ class AllPoisLayout extends React.Component {
         return (
             <div>
                 <NavigationContainer path={this.props.pathname}/>
-                <PoiListContainer/>
+                <FiltersContainer />
             </div>
         )
     }
