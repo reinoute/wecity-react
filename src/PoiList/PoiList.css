@@ -3,22 +3,22 @@
   margin: var(--margin-default) var(--margin-default) var(--margin-default) 0;
   padding-left: 0;
   text-align: center;
-}
 
-.poi-list-item {
-  display: inline-block;
-  width: calc(100% - var(--margin-default));
-  max-width: 375px;
-  margin-left: var(--margin-default);
-  border-radius: var(--border-radius-default);
-  background-color: white;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+  &-item {
+    display: inline-block;
+    width: calc(100% - var(--margin-default));
+    max-width: 375px;
+    margin-left: var(--margin-default);
+    border-radius: var(--border-radius-default);
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
 
-  &:not(:last-of-type) {
-    margin-bottom: var(--margin-default);
+    &:not(:last-of-type) {
+      margin-bottom: var(--margin-default);
+    }
   }
 
-  &-anchor {
+  &-item-anchor {
     padding: 0;
     border: 0;
     background: transparent;
@@ -27,7 +27,7 @@
     cursor: pointer;
   }
 
-  &-title {
+  &-item-title {
     margin: 0;
     padding: var(--padding-small);
     font-size: 1.5em;
@@ -37,36 +37,53 @@
     text-overflow: ellipsis;
   }
 
-  &-details {
-    position: relative; /* for absolute position of .poi-list-item-price */
+  &-item-details {
+    position: relative; /* for absolute position of .poi-list-item-price & .poi-list-item-type */
   }
 
-  &-img {
+  &-item-img {
     display: block;
     width: 100%;
     height: auto;
   }
 
-  &-labels {
+  &-item-labels {
+    list-style: none;
+    padding-left: 0;
     position: absolute;
     bottom: var(--margin-default);
     left: 0;
-    color: white;
+
+    > * {
+      display: inline-block;
+      padding: 0.25em 0.5em;
+      color: white;
+
+      &:not(:last-of-type) {
+        margin-right: 4px;
+      }
+    }
   }
 
-  &-price {
-    display: inline-block;
+  &-item-type {
     margin-right: var(--margin-small);
-    padding: 0.25em 0.5em;
+    background-color: rgba(0, 0, 0, 0.7);
     border-top-right-radius: var(--border-radius-default);
     border-bottom-right-radius: var(--border-radius-default);
-    background-color: var(--black);
+
+    /* icon */
+    &:before {
+      margin-right: var(--margin-small);
+    }
+  }
+
+  &-item-price {
+    background-color: var(--pink);
+    border-radius: var(--border-radius-default);
     font-weight: bold;
   }
 
-  &-skip {
-    display: inline-block;
-    padding: 0.25em 0.5em;
+  &-item-skip {
     background-color: var(--yellow);
     color: var(--body-font-color)
   }

@@ -14,10 +14,11 @@ const PoiList = (props) => (
                                  src={ item.imgUrl }
                                  width="375" height="200"
                                  alt={ item.title }/>
-                            <div className="poi-list-item-labels">
-                                <span className="poi-list-item-price">{ formatPrice(item.price) }</span>
-                                { item.skipTheLine && <span className="poi-list-item-skip">Skip the line</span> }
-                            </div>
+                            <ul className="poi-list-item-labels">
+                                <li className={"poi-list-item-type icon-" + item.type}>{ item.type }</li>
+                                <li className="poi-list-item-price">{ formatPrice(item.price) }</li>
+                                { item.skipTheLine && <li className="poi-list-item-skip">Skip the line</li> }
+                            </ul>
                         </div>
                     </Link>
                 </li>
