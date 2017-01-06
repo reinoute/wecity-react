@@ -14,6 +14,10 @@ const Poi = (props) => (
         <section className="poi-body">
             <section className="poi-summary">
                 <h1 className="poi-title">{ props.details.title }</h1>
+                <div className="poi-type">
+                    <span className={"poi-icon icon-" + props.details.type}></span>
+                    <span className="poi-type-text">{ props.details.type }</span>
+                </div>
                 <div className="poi-opening-hours">
                     <span className="icon-open-now poi-icon"></span>
                     Open until 18:00
@@ -33,8 +37,7 @@ const Poi = (props) => (
                 { props.details.skipTheLine &&
                     <div className="poi-skiptheline">
                         <span className="poi-skiptheline-title">Skip the line</span>
-                        <p>During checkout you will choose the time you want to enter the museum.
-                            You can use a special lane to access the museum to avoid standing in line.</p>
+                        <p>With your tickets you can use a special lane to access the museum to avoid standing in line.</p>
                     </div>
                 }
             </section>
@@ -52,10 +55,11 @@ const Poi = (props) => (
                     </ul>
                 </div>
                 <ul className="poi-about-list">
-                    <li className={"poi-about-item poi-type icon-" + props.details.type}>{ props.details.type }</li>
-                    {/*<li className="poi-about-item icon-mapswitch">{ props.details.location.address } <a*/}
-                        {/*href={ 'https://www.google.com/maps/place/' + props.details.location.coordinates[1] + ',' + props.details.location.coordinates[0] }>Show*/}
-                        {/*on map</a></li>*/}
+                    <li className="poi-about-item icon-mapswitch">
+                        { props.details.address }, { props.details.district }. <a
+                        href={ 'https://www.google.com/maps/place/' + props.details.coordinates[0] + ',' + props.details.coordinates[1] }>Show
+                        on map</a>
+                    </li>
                 </ul>
             </section>
         </section>

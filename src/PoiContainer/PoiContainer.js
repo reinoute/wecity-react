@@ -11,7 +11,7 @@ class PoiContainer extends React.Component {
             details: {
                 facilities: [],
                 labels: [],
-                location: {coordinates: []},
+                coordinates: [],
                 images: [],
                 tags: [],
                 ticketInformation: []
