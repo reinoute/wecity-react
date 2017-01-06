@@ -1,11 +1,8 @@
-.home-layout {
-
-  header {
-    background-color: var(--grey-darkest);
-    color: white;
-    line-height: 3;
-    text-align: center;
-  }
+.navigation {
+  background-color: var(--grey-darkest);
+  color: white;
+  line-height: 3;
+  text-align: center;
 
   &-logo {
     position: absolute;
@@ -28,11 +25,6 @@
     }
   }
 
-  nav[role="navigation"] {
-    display: inline-block;
-    margin: 0 auto;
-  }
-
   &-nav-list {
     display: inline;
     list-style: none;
@@ -47,20 +39,26 @@
     &:not(:last-of-type) {
       margin-right: var(--margin-default);
     }
+  }
 
-    button {
-      text-decoration: none;
+  &-item-anchor {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    line-height: 3;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+      color: var(--grey-lighter);
+      border-color: var(--grey-lighter);
+    }
+
+    &:visited {
       color: white;
-      line-height: 3;
+    }
 
-      &:hover {
-        color: var(--grey-lighter);
-        border-bottom: 3px solid var(--grey-lighter);
-      }
-
-      &.is-active {
-        border-bottom: 3px solid var(--pink);
-      }
+    &.is-active {
+      border-color: var(--pink);
     }
   }
 }
