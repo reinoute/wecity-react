@@ -1,5 +1,6 @@
 import React from 'react';
 import PoiListContainer from '../PoiListContainer/PoiListContainer';
+import logoText from './wecity-logo-text.svg';
 
 class HomeLayout extends React.Component {
 
@@ -7,7 +8,10 @@ class HomeLayout extends React.Component {
         return (
             <div className="home-layout">
                 <header role="banner">
-                    <span className="icon-logo-wecity"></span>
+                    <div className="home-layout-logo">
+                        <span className="icon-logo-wecity"></span>
+                        <img className="home-layout-logo-text" src={ logoText } alt="weCity"/>
+                    </div>
                     <nav role="navigation">
                         <ul className="home-layout-nav-list">
                             <li className="home-layout-nav-item">

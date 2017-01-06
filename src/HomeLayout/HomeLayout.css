@@ -7,11 +7,25 @@
     text-align: center;
   }
 
-  .icon-logo-wecity:before {
+  &-logo {
     position: absolute;
     left: var(--margin-default);
+  }
+
+  .icon-logo-wecity:before {
+    margin-right: var(--margin-small);
     font-size: 1.5em;
     line-height: 2;
+  }
+
+  &-logo-text {
+    display: none;
+
+    @media (min-width: 500px) {
+      display: inline;
+      width: 4em;
+      vertical-align: middle;
+    }
   }
 
   nav[role="navigation"] {
