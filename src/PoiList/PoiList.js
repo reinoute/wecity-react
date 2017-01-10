@@ -16,7 +16,7 @@ const PoiList = (props) => (
                                  alt={ item.title }/>
                             <ul className="poi-list-item-labels">
                                 <li className={"poi-list-item-type icon-" + item.type}>{ item.type }</li>
-                                <li className="poi-list-item-price">{ formatPrice(item.price) }</li>
+                                { item.price && <li className="poi-list-item-price">{ formatPrice(item.price) }</li> }
                                 { item.skipTheLine && <li className="poi-list-item-skip">Skip the line</li> }
                             </ul>
                         </div>

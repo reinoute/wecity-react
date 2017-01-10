@@ -22,17 +22,18 @@ const Poi = (props) => (
                     <span className="icon-open-now poi-icon"></span>
                     Open until 18:00
                 </div>
-                <div className="poi-tickets">
-                    <span className="icon-ticket poi-icon"></span>
-                    <ul className="poi-ticket-list">
-                        { props.details.ticketInformation.map(ticket =>
-                            <li className="poi-ticket-item" key={ ticket.id }>
-                                <span className="poi-ticket-label">{ ticket.label }: </span>
-                                <span className="poi-ticket-price">{ formatPrice(ticket.price) }</span>
-                            </li>
-                        )}
-                    </ul>
-                </div>
+                { props.details.ticketInformation.length > 0 &&
+                    <div className="poi-tickets">
+                        <span className="icon-ticket poi-icon"></span>
+                        <ul className="poi-ticket-list">
+                            { props.details.ticketInformation.map(ticket =>
+                                <li className="poi-ticket-item" key={ ticket.id }>
+                                    <span className="poi-ticket-label">{ ticket.label }: </span>
+                                    <span className="poi-ticket-price">{ formatPrice(ticket.price) }</span>
+                                </li>
+                            )}
+                        </ul>
+                    </div> }
                 <button className="button-primary" type="button">Get Tickets</button>
                 { props.details.skipTheLine &&
                     <div className="poi-skiptheline">
