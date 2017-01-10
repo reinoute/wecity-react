@@ -3,6 +3,7 @@
 
 /* list components alphabetically */
 @import "./Carousel/Carousel.css";
+@import "./Filters/Filters.css";
 @import "./Navigation/Navigation.css";
 @import "./Poi/Poi.css";
 @import "./PoiList/PoiList.css";
