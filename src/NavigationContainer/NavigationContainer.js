@@ -8,12 +8,6 @@ class NavigationContainer extends React.Component {
         this.state = { path: ''}
     }
 
-    componentDidMount() {
-        console.log('-RE- hoi', this.state.path);
-        
-        // this.setState({path: this.context.location.pathname });
-    }
-
     render() {
         return (
             <Navigation path={this.props.path}/>

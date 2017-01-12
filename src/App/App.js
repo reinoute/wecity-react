@@ -1,17 +1,17 @@
 import React from 'react';
 import NavigationContainer from '../NavigationContainer/NavigationContainer';
-import PoiListContainer from '../PoiListContainer/PoiListContainer';
+import FiltersContainer from '../FiltersContainer/FiltersContainer';
 
-class TopTenLayout extends React.Component {
+class App extends React.Component {
 
     render() {
         return (
             <div>
                 <NavigationContainer path={this.props.pathname}/>
-                <PoiListContainer onlyBookable={true}/>
+                <FiltersContainer />
             </div>
         )
     }
 }
 
-export default TopTenLayout;
+export default App;
