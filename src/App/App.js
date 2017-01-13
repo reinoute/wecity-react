@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationContainer from '../NavigationContainer/NavigationContainer';
+import Navigation from '../Navigation/Navigation';
 import FiltersContainer from '../FiltersContainer/FiltersContainer';
 
 class App extends React.Component {
@@ -7,7 +7,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <NavigationContainer path={this.props.pathname}/>
+                <Navigation path={this.props.pathname}/>
                 <FiltersContainer />
             </div>
         )
