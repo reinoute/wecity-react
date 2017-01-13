@@ -3,7 +3,7 @@ import { Match } from 'react-router';
 import Navigation from '../Navigation/Navigation';
 import FiltersContainer from '../FiltersContainer/FiltersContainer';
 import PoiListContainer from '../PoiListContainer/PoiListContainer';
-import {getPois} from '../storage';
+import {getPois} from '../Storage/Storage';
 
 class App extends React.Component {
 

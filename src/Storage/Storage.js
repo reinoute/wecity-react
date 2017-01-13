@@ -1,4 +1,4 @@
-import {fetchAllPois} from './api';
+import {fetchAllPois} from '../Api/Api';
 import localforage from 'localforage';
 
 const ALL_POIS_KEY = "POIS";

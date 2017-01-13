@@ -1,6 +1,6 @@
 import React from 'react';
 import Poi from '../Poi/Poi';
-import {getPoiById} from '../storage';
+import {getPoiById} from '../Storage/Storage';
 
 class PoiContainer extends React.Component {
 
