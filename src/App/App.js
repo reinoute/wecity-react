@@ -1,6 +1,8 @@
 import React from 'react';
+import { Match } from 'react-router';
 import Navigation from '../Navigation/Navigation';
 import FiltersContainer from '../FiltersContainer/FiltersContainer';
+import PoiListContainer from '../PoiListContainer/PoiListContainer';
 
 class App extends React.Component {
 
@@ -8,7 +10,8 @@ class App extends React.Component {
         return (
             <div>
                 <Navigation path={this.props.pathname}/>
-                <FiltersContainer />
+                <Match pattern="/search" component={FiltersContainer}/>
+                <PoiListContainer/>
             </div>
         )
     }
