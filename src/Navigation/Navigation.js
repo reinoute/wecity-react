@@ -16,8 +16,8 @@ const Navigation = (props) => {
                               className={ "navigation-item-anchor " + (props.path === "/" ? "is-active" : "")}>Top 10</Link>
                     </li>
                     <li className="navigation-nav-item">
-                        <Link to={'/all'}
-                              className={ "navigation-item-anchor " + (props.path === "/all" ? "is-active" : "")}>All activities</Link>
+                        <Link to={'/search'}
+                              className={ "navigation-item-anchor " + (props.path === "/search" ? "is-active" : "")}>All activities</Link>
                     </li>
                 </ul>
             </nav>
