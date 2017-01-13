@@ -3,23 +3,16 @@ import Carousel from '../Carousel/Carousel';
 
 class CarouselContainer extends React.Component {
 
-    constructor() {
-        super();
+    state = {index: 0};
 
-        this.previousImage = this.previousImage.bind(this);
-        this.nextImage = this.nextImage.bind(this);
-
-        this.state = { index: 0 };
-    }
-
-    previousImage() {
+    previousImage = () => {
         if (this.state.index > 0) {
             const newIndex = this.state.index - 1;
             this.setState({index: newIndex});
         }
     }
 
-    nextImage() {
+    nextImage = () => {
         const totalCount = this.props.items.length - 1;
 
         if (this.state.index < totalCount) {
