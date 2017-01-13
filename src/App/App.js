@@ -3,17 +3,22 @@ import { Match } from 'react-router';
 import Navigation from '../Navigation/Navigation';
 import FiltersContainer from '../FiltersContainer/FiltersContainer';
 import PoiListContainer from '../PoiListContainer/PoiListContainer';
-import {getPois} from '../Storage/Storage';
+import { getPois } from '../Storage/Storage';
 
 class App extends React.Component {
 
     state = { pois: [] };
 
     componentDidMount() {
-        const onlyBookable = true;
 
-        getPois(onlyBookable)
-            .then(items => this.setState({pois: items}));
+        getPois()
+            .then(items => {
+                // on home, only show pois that are bookable (price > 0)
+                if (this.props.pathname === "/") {
+                    return items.filter(item => item.price > 0);
+                } else return items;
+            })
+            .then(items => this.setState({pois: items}))
     }
 
     render() {

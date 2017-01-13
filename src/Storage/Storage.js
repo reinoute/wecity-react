@@ -14,7 +14,7 @@ const updatePois = () =>
             .then(values => values[0]) // return only the pois, not the timestamp
             .catch(error => console.log('Error updating local data: ', error));
 
-const getPois = (bookableOnly = false) =>
+const getPois = () =>
     Promise.all([
         localforage.getItem(ALL_POIS_KEY),
         localforage.getItem(LAST_UPDATED_KEY)
@@ -23,9 +23,8 @@ const getPois = (bookableOnly = false) =>
         const lastUpdated = values[1];
 
         if (pois && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY) {
-            return bookableOnly ? pois.filter(item => item.price > 0) : pois;
-        } else return updatePois().then(updatedPois =>
-            bookableOnly ? updatedPois.filter(item => item.price > 0) : updatedPois);
+            return pois;
+        } else return updatePois();
     });
 
 const getPoiById = (id) =>
