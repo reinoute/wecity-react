@@ -54,6 +54,7 @@
         /* inside @supports so that Android <= 4.3 display the native arrow */
         border: 1px solid transparent; /* Match-05 */
         appearance: none;
+        -webkit-appearance: none
     }
 
     .custom-select select:focus {

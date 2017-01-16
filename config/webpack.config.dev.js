@@ -173,7 +173,8 @@ module.exports = {
       require('postcss-import'),
       require('postcss-custom-properties'),
       require('postcss-apply'),
-      require('postcss-nested')
+      require('postcss-nested'),
+      require('postcss-custom-media')
     ];
   },
   plugins: [

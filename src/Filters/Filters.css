@@ -4,18 +4,120 @@
   &-form {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: var(--padding-default);
-  }
-
-  &-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    min-height: 0;
+    padding: var(--padding-small) var(--padding-default);
   }
 
   &-legend {
     @apply (--sr-only);
+  }
+
+  &-header {
+    display: table;
+    width: 100%;
+
+    @media (--media-s) {
+      display: block;
+      @apply (--clearfix);
+    }
+
+    & > * {
+      display: table-cell;
+
+      @media (--media-s) {
+        display: inline-block;
+        float: left;
+        margin-right: var(--margin-large);
+      }
+    }
+  }
+
+  &-result-count {
+    height: var(--form-element-height);
+    line-height: 2.5;
+    color: var(--grey-dark);
+  }
+
+  &-count {
+    display: inline-block;
+    height: 1.5em;
+    line-height: 1.5;
+    padding-right: var(--padding-small);
+    padding-left: var(--padding-small);
+    background: var(--grey-lightest);
+    border: 1px solid var(--grey);
+    color: var(--grey);
+    border-radius: 50%;
+  }
+
+  &-toggle {
+    position: relative; /* for absolute position of triangle */
+    text-align: center;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      margin: auto;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 12px 12px 12px;
+      border-color: transparent transparent var(--grey-lighter) transparent;
+      transform: rotate(360deg); /* anti aliasing in webkit */
+    }
+  }
+
+  &-button-toggle {
+    height: var(--form-element-height);
+    text-decoration: none;
+  }
+
+  .icon-filter:before {
+    display: none;
+    margin-right: var(--margin-small);
+
+    @media (--media-s) {
+      display: inline-block;
+    }
+  }
+
+  &-sorting {
+    text-align: right;
+  }
+
+  &-sorting-icon:before {
+    content: "\2193"
+  }
+
+  &-sorting-label {
+    display: none;
+
+    @media (--media-s) {
+      display: inline-block;
+    }
+  }
+
+  .custom-select {
+    display: inline-block;
+    border: none;
+    background: none;
+    box-shadow: none;
+
+    select {
+      padding-right: 1em;
+      padding-left: 0.25em;
+    }
+
+    &:after {
+      right: 0.25em;
+    }
+  }
+
+  &-body {
+    display: none;
   }
 
   &-checkbox-group {
