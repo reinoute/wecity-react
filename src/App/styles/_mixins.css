@@ -16,4 +16,9 @@
     clip: rect(0, 0, 0, 0);
     border: 0;
   };
+
+  --container: {
+    max-width: var(--container-width);
+    margin: 0 auto;
+  }
 }

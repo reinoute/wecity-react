@@ -1,19 +1,23 @@
 .filters {
   background-color: white;
 
-  &-form {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: var(--padding-small) var(--padding-default);
-  }
-
   &-legend {
     @apply (--sr-only);
   }
 
   &-header {
+
+    .filters.is-expanded & {
+      border-bottom: 1px solid var(--grey);
+    }
+  }
+
+  &-header-container {
     display: table;
     width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--padding-small) var(--padding-default);
 
     @media (--media-s) {
       display: block;
@@ -53,6 +57,7 @@
     position: relative; /* for absolute position of triangle */
     text-align: center;
 
+    &:before,
     &:after {
       content: "";
       position: absolute;
@@ -67,6 +72,15 @@
       border-width: 0 12px 12px 12px;
       border-color: transparent transparent var(--grey-lighter) transparent;
       transform: rotate(360deg); /* anti aliasing in webkit */
+    }
+
+    .filters.is-expanded &:before {
+      border-bottom-color: var(--grey);
+    }
+
+    .filters.is-expanded &:after {
+      bottom: -9px;
+      border-bottom-color: white;
     }
   }
 
@@ -116,8 +130,10 @@
     }
   }
 
-  &-body {
-    display: none;
+  &-body-container {
+    padding: var(--padding-small) var(--padding-default) 0 var(--padding-default);
+    max-width: var(--container-width);
+    margin: 0 auto;
   }
 
   &-checkbox-group {
