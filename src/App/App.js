@@ -13,27 +13,61 @@ class App extends React.Component {
         this.state = {
             pois: [],
             filteredPois: [],
-            filters: { types: [] }
+            types: [
+                {
+                    name: 'Museum',
+                    isFiltered: false
+                },
+                {
+                    name: 'Attraction',
+                    isFiltered: false
+                },
+                {
+                    name: 'Collection',
+                    isFiltered: false
+                },
+                {
+                    name: 'Insider',
+                    isFiltered: false
+                },
+                {
+                    name: 'Explore',
+                    isFiltered: false
+                },
+                {
+                    name: 'Shopping',
+                    isFiltered: false
+                },
+                {
+                    name: 'Restaurant',
+                    isFiltered: false
+                },
+                {
+                    name: 'Nightlife',
+                    isFiltered: false
+                }
+            ]
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange = (event) => {
-        let types = this.state.filters.types.slice(0); // clone array
+        let types = this.state.types.slice(0); // clone array
         const target = event.target;
-        const value = target.value;
-        const index = types.indexOf(value);
 
-        // update types filter
-        target.checked && index === -1 ? types.push(value) : types.splice(index, 1);
+        types
+            .filter(item => item.name.toUpperCase() === target.value.toUpperCase())
+            .forEach(item => item.isFiltered = target.checked);
+
+        const appliedFilters = types.filter(item => item.isFiltered).map(item => item.name.toLowerCase());
 
         const filteredPois = this.state.pois.slice(0) // clone all pois
-            .filter(item => types.indexOf(item.type) >= 0); // and filter them
+            .filter(item => appliedFilters.indexOf(item.type) >= 0); // and filter them
 
         this.setState({
             filteredPois: filteredPois.length > 0 ? filteredPois : this.state.pois.slice(0),
-            filters: { types: types }
+            types: types
         });
     }
 
