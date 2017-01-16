@@ -11,6 +11,7 @@ class FiltersContainer extends React.Component {
     
     render() {
         return ( <Filters
+            items={this.props.items}
             handleChange={this.props.handleChange}
             toggleExpand={this.toggleExpand}
             isExpanded={this.state.isExpanded}

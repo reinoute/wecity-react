@@ -15,35 +15,51 @@ class App extends React.Component {
             filteredPois: [],
             types: [
                 {
+                    id: 'museum',
                     name: 'Museum',
+                    icon: 'museum',
                     isFiltered: false
                 },
                 {
+                    id: 'attraction',
                     name: 'Attraction',
+                    icon: 'attraction',
                     isFiltered: false
                 },
                 {
+                    id: 'collection',
                     name: 'Collection',
+                    icon: 'exhibitions',
                     isFiltered: false
                 },
                 {
+                    id: 'insider',
                     name: 'Insider',
+                    icon: 'themes',
                     isFiltered: false
                 },
                 {
+                    id: 'explore',
                     name: 'Explore',
+                    icon: 'rainbow-flag',
                     isFiltered: false
                 },
                 {
+                    id: 'shopping',
                     name: 'Shopping',
+                    icon: 'shopping',
                     isFiltered: false
                 },
                 {
+                    id: 'restaurant',
                     name: 'Restaurant',
+                    icon: 'restaurant',
                     isFiltered: false
                 },
                 {
+                    id: 'nightlife',
                     name: 'Nightlife',
+                    icon: 'nightlife',
                     isFiltered: false
                 }
             ]
@@ -57,10 +73,10 @@ class App extends React.Component {
         const target = event.target;
 
         types
-            .filter(item => item.name.toUpperCase() === target.value.toUpperCase())
+            .filter(item => item.id === target.value)
             .forEach(item => item.isFiltered = target.checked);
 
-        const appliedFilters = types.filter(item => item.isFiltered).map(item => item.name.toLowerCase());
+        const appliedFilters = types.filter(item => item.isFiltered).map(item => item.id);
 
         const filteredPois = this.state.pois.slice(0) // clone all pois
             .filter(item => appliedFilters.indexOf(item.type) >= 0); // and filter them
@@ -69,7 +85,7 @@ class App extends React.Component {
             filteredPois: filteredPois.length > 0 ? filteredPois : this.state.pois.slice(0),
             types: types
         });
-    }
+    };
 
     componentDidMount() {
 
