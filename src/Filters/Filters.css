@@ -1,8 +1,11 @@
 .filters {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: var(--padding-default);
   background-color: white;
+
+  &-form {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--padding-default);
+  }
 
   &-fieldset {
     border: 0;
@@ -20,29 +23,34 @@
     margin-right: var(--margin-small);
     margin-bottom: var(--margin-small);
 
-    input {
-
-      &:checked + label {
-        border-color: var(--grey-dark);
-
-        &:before {
-          color: var(--pink);
-        }
-      }
-    }
-
     label {
-      padding: 0.25em 0.5em;
+      display: inline-block;
+      padding: 0.5em;
       border: 1px solid var(--grey-lighter);
       border-radius: 0.1em;
 
-      &:before {
-        display: inline;
-        border: 0;
-        content: '\2714';
-        color: transparent;
+      /* icon */
+      span:before {
+        display: inline-block;
+        margin-right: var(--margin-small);
+        color: var(--grey-dark);
       }
 
+      /* checkbox */
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  input {
+
+    &:checked + label {
+      border-color: var(--black);
+
+      span:before {
+        color: var(--black);
+      }
     }
   }
 }

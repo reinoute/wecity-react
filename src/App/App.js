@@ -53,8 +53,10 @@ class App extends React.Component {
         return (
             <div>
                 <Navigation path={this.props.pathname}/>
-                <Match pattern="/search" render={() => <FiltersContainer handleChange={this.handleChange} />}/>
-                <PoiListContainer items={this.state.filteredPois}/>
+                <main>
+                    <Match pattern="/search" render={() => <FiltersContainer handleChange={this.handleChange}/>}/>
+                    <PoiListContainer items={this.state.filteredPois}/>
+                </main>
             </div>
         )
     }
