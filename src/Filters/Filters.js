@@ -6,13 +6,13 @@ const Filters = (props) => (
             <div className="filters-header">
                 <div className="filters-header-container">
                     <div className="filters-result-count">
-                        200 results
+                        {props.resultCount} results
                     </div>
                     <div className="filters-toggle">
                         <button className="filters-button-toggle button-link" type="button"
                                 onClick={props.toggleExpand}>
                             <span className="icon-filter">Filters <span
-                                className={"filters-count " + (props.count > 0 ? "is-active" : "")}>{props.count}</span>
+                                className={"filters-count " + (props.filterCount > 0 ? "is-active" : "")}>{props.filterCount}</span>
                             </span>
                         </button>
                     </div>
