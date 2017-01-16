@@ -4,6 +4,11 @@
   line-height: 3;
   text-align: center;
 
+  &-container {
+    position: relative;
+    @apply (--container);
+  }
+
   &-logo {
     position: absolute;
     left: var(--margin-default);
@@ -23,6 +28,10 @@
       width: 4em;
       vertical-align: middle;
     }
+  }
+
+  nav[role="navigation"] {
+    display: inline-block;
   }
 
   &-nav-list {
