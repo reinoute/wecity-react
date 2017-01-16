@@ -51,6 +51,12 @@
     border: 1px solid var(--grey);
     color: var(--grey);
     border-radius: 50%;
+
+    &.is-active {
+      background-color: var(--grey-darkest);
+      border-color: var(--black);
+      color: white;
+    }
   }
 
   &-toggle {

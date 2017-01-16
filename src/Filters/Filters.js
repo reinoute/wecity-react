@@ -11,7 +11,9 @@ const Filters = (props) => (
                     <div className="filters-toggle">
                         <button className="filters-button-toggle button-link" type="button"
                                 onClick={props.toggleExpand}>
-                            <span className="icon-filter">Filters <span className="filters-count">0</span></span>
+                            <span className="icon-filter">Filters <span
+                                className={"filters-count " + (props.count > 0 ? "is-active" : "")}>{props.count}</span>
+                            </span>
                         </button>
                     </div>
                     <div className="filters-sorting">

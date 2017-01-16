@@ -13,7 +13,8 @@ class FiltersContainer extends React.Component {
         return ( <Filters
             handleChange={this.props.handleChange}
             toggleExpand={this.toggleExpand}
-            isExpanded={this.state.isExpanded}/> )
+            isExpanded={this.state.isExpanded}
+            count={this.props.items.filter(item => item.isFiltered === true).length}/> )
     }
 }
 
