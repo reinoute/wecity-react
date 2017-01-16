@@ -13,14 +13,14 @@ class App extends React.Component {
         this.state = {
             pois: [],
             filteredPois: [],
-            types: []
+            filters: { types: [] }
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange = (event) => {
-        let types = this.state.types.slice(0); // clone array
+        let types = this.state.filters.types.slice(0); // clone array
         const target = event.target;
         const value = target.value;
         const index = types.indexOf(value);
@@ -33,7 +33,7 @@ class App extends React.Component {
 
         this.setState({
             filteredPois: filteredPois.length > 0 ? filteredPois : this.state.pois.slice(0),
-            types: types
+            filters: { types: types }
         });
     }
 
