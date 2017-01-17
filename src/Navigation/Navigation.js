@@ -17,7 +17,7 @@ const Navigation = (props) => {
                                 <Link to={item.path}
                                       className={ "navigation-item-anchor " + (item.isActive ? "is-active" : "")}>
                                     {item.name}
-                                    </Link>
+                                </Link>
                             </li>
                         )}
                     </ul>

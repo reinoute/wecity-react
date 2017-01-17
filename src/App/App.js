@@ -102,6 +102,11 @@ class App extends React.Component {
     };
 
     componentDidMount() {
+        let navigationItems = this.state.navigationItems.slice(0) // clone it
+
+        navigationItems.forEach(item => item.isActive = item.path === this.props.pathname);
+        
+        this.setState({navigationItems});
 
         getPois()
             .then(items => {
@@ -116,7 +121,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Navigation items={this.state.navigationItems} path={this.props.pathname}/>
+                <Navigation items={this.state.navigationItems}/>
                 <main>
                     <Match pattern="/search" render={() => <FiltersContainer
                         handleChange={this.handleChange}
