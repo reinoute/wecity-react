@@ -11,6 +11,20 @@ class App extends React.Component {
         super();
 
         this.state = {
+            navigationItems: [
+                {
+                    id: 'home',
+                    name: 'Top 10',
+                    path: '/',
+                    isActive: true
+                },
+                {
+                    id: 'search',
+                    name: 'All activities',
+                    path: '/all',
+                    isActive: false
+                }
+            ],
             pois: [],
             filteredPois: [],
             types: [
@@ -102,7 +116,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Navigation path={this.props.pathname}/>
+                <Navigation items={this.state.navigationItems} path={this.props.pathname}/>
                 <main>
                     <Match pattern="/search" render={() => <FiltersContainer
                         handleChange={this.handleChange}

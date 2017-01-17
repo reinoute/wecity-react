@@ -12,16 +12,14 @@ const Navigation = (props) => {
                 </div>
                 <nav role="navigation">
                     <ul className="navigation-nav-list">
-                        <li className="navigation-nav-item">
-                            <Link to={'/'}
-                                  className={ "navigation-item-anchor " + (props.path === "/" ? "is-active" : "")}>Top
-                                10</Link>
-                        </li>
-                        <li className="navigation-nav-item">
-                            <Link to={'/search'}
-                                  className={ "navigation-item-anchor " + (props.path === "/search" ? "is-active" : "")}>All
-                                activities</Link>
-                        </li>
+                        { props.items.map(item =>
+                            <li key={item.id} className="navigation-nav-item">
+                                <Link to={item.path}
+                                      className={ "navigation-item-anchor " + (item.isActive ? "is-active" : "")}>
+                                    {item.name}
+                                    </Link>
+                            </li>
+                        )}
                     </ul>
                 </nav>
             </div>
