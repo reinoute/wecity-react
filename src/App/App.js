@@ -102,7 +102,7 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        let navigationItems = this.state.navigationItems.slice(0) // clone it
+        let navigationItems = this.state.navigationItems.slice(0); // clone it
 
         navigationItems.forEach(item => item.isActive = item.path === this.props.pathname);
         
@@ -119,14 +119,17 @@ class App extends React.Component {
     }
 
     render() {
+        const isSearchActive = this.state.navigationItems.filter(item => item.id === 'search')[0].isActive;
+
         return (
             <div>
                 <Navigation items={this.state.navigationItems}/>
                 <main>
-                    <Match pattern="/search" render={() => <FiltersContainer
-                        handleChange={this.handleChange}
-                        items={this.state.types}
-                        resultCount={this.state.filteredPois.length}/>}/>
+                    { isSearchActive &&
+                        <FiltersContainer
+                            handleChange={this.handleChange}
+                            items={this.state.types}
+                            resultCount={this.state.filteredPois.length}/>}
                     <PoiListContainer items={this.state.filteredPois}/>
                 </main>
             </div>
