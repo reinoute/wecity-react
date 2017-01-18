@@ -90,16 +90,14 @@ class App extends React.Component {
 
         const appliedFilters = types.filter(item => item.isFiltered).map(item => item.id);
 
-        const pois = this.state.pois.slice(0) // clone all pois
-            .forEach(item => {
-                // and filter them
-                const isTopTenActive = this.state.navigationItems.filter(item => item.id === 'home')[0].isActive;
-                const matchesType = appliedFilters.indexOf(item.type) >= 0;
-                const isBookable = isTopTenActive && item.price > 0;
-                item.isFiltered = matchesType && isBookable;
-            });
+        let pois = this.state.pois.slice(0) // clone all pois
 
-        this.setState({pois, types});
+        pois.forEach(item => item.isFiltered = appliedFilters.indexOf(item.type) >= 0);
+
+        this.setState({
+            pois: pois,
+            types: types
+        });
     };
 
     componentDidMount() {
