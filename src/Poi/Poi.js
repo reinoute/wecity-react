@@ -1,7 +1,7 @@
 import React from 'react';
 import CarouselContainer from '../CarouselContainer/CarouselContainer';
 import {Link} from 'react-router';
-import {formatPrice} from '../helpers';
+import {formatPrice, formatOpeningTimes} from '../helpers';
 
 const Poi = (props) => (
     <div className="poi">
@@ -18,10 +18,12 @@ const Poi = (props) => (
                     <span className={"poi-icon icon-" + props.details.type}></span>
                     <span className="poi-type-text">{ props.details.type }</span>
                 </div>
-                <div className="poi-opening-hours">
-                    <span className="icon-open-now poi-icon"></span>
-                    Open until 18:00
-                </div>
+                { props.details.openingHours &&
+                    <div className="poi-opening-hours">
+                        <span className="icon-open-now poi-icon"></span>
+                        { formatOpeningTimes(props.details.openingHours) }
+                    </div>
+                }
                 { props.details.ticketInformation.length > 0 &&
                     <div className="poi-tickets">
                         <span className="icon-ticket poi-icon"></span>
@@ -34,7 +36,7 @@ const Poi = (props) => (
                             )}
                         </ul>
                     </div> }
-                <button className="button-primary" type="button">Get Tickets</button>
+                { props.details.isBookable && <button className="button-primary" type="button">Get Tickets</button> }
                 { props.details.skipTheLine &&
                     <div className="poi-skiptheline">
                         <span className="poi-skiptheline-title">Skip the line</span>
@@ -47,14 +49,16 @@ const Poi = (props) => (
                 <p className="poi-description">
                     { props.details.summary }
                 </p>
-                <div className="poi-tags">
-                    <strong>Tags: </strong>
-                    <ul className="poi-tag-list">
-                        { props.details.tags.map(
-                            (tag, index) => <li className="poi-tag-item" key={index}>{ tag.value }</li>)
-                        }
-                    </ul>
-                </div>
+                { props.details.tags.length > 0 &&
+                    <div className="poi-tags">
+                        <strong>Tags: </strong>
+                        <ul className="poi-tag-list">
+                            { props.details.tags.map(
+                                (tag, index) => <li className="poi-tag-item" key={index}>{ tag.value }</li>)
+                            }
+                        </ul>
+                    </div>
+                }
                 <ul className="poi-about-list">
                     <li className="poi-about-item icon-mapswitch">
                         { props.details.address }, { props.details.district }. <a
