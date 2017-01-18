@@ -63,8 +63,8 @@
     position: relative; /* for absolute position of triangle */
     text-align: center;
 
-    &:before,
-    &:after {
+    .filters.is-expanded &:before,
+    .filters.is-expanded &:after {
       content: "";
       position: absolute;
       left: 0;

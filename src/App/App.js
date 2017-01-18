@@ -1,5 +1,4 @@
 import React from 'react';
-import { Match } from 'react-router';
 import Navigation from '../Navigation/Navigation';
 import FiltersContainer from '../FiltersContainer/FiltersContainer';
 import PoiListContainer from '../PoiListContainer/PoiListContainer';
@@ -15,13 +14,13 @@ class App extends React.Component {
                 {
                     id: 'home',
                     name: 'Top 10',
-                    path: '/',
+                    path: '/top10',
                     isActive: true
                 },
                 {
                     id: 'search',
                     name: 'All activities',
-                    path: '/all',
+                    path: '/search',
                     isActive: false
                 }
             ],
@@ -108,10 +107,12 @@ class App extends React.Component {
         
         this.setState({navigationItems});
 
+        const isTopTenActive = this.state.navigationItems.filter(item => item.id === 'home')[0].isActive;
+
         getPois()
             .then(items => {
                 // on home, only show pois that are bookable (price > 0)
-                if (this.props.pathname === "/") {
+                if (isTopTenActive) {
                     return items.filter(item => item.price > 0);
                 } else return items;
             })
@@ -130,7 +131,7 @@ class App extends React.Component {
                             handleChange={this.handleChange}
                             items={this.state.types}
                             resultCount={this.state.filteredPois.length}/>}
-                    <PoiListContainer items={this.state.filteredPois}/>
+                    <PoiListContainer items={this.state.filteredPois} isSearchActive={isSearchActive}/>
                 </main>
             </div>
         )

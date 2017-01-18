@@ -6,7 +6,7 @@ import {formatPrice} from '../helpers';
 const Poi = (props) => (
     <div className="poi">
         <div className="poi-header">
-            <Link to={'/'} className="poi-anchor-back"><
+            <Link to={props.referer} className="poi-anchor-back"><
                 span className="icon-chevron-left"> Back</span>
             </Link>
         </div>

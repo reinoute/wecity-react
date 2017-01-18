@@ -7,7 +7,7 @@ const PoiList = (props) => (
         { props.items.map(item => {
             return (
                 <li className="poi-list-item" key={ item.id }>
-                    <Link to={'/poi/' + item.id} className="poi-list-item-anchor">
+                    <Link to={props.isSearchActive ? '/search/' + item.id : '/top10/' + item.id} className="poi-list-item-anchor">
                         <h1 className="poi-list-item-title">{ item.title }</h1>
                         <div className="poi-list-item-details">
                             <img className="poi-list-item-img"
