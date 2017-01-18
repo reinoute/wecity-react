@@ -25,7 +25,6 @@ class App extends React.Component {
                 }
             ],
             pois: [],
-            filteredPois: [],
             types: [
                 {
                     id: 'museum',
@@ -91,7 +90,7 @@ class App extends React.Component {
 
         const appliedFilters = types.filter(item => item.isFiltered).map(item => item.id);
 
-        const filteredPois = this.state.pois.slice(0) // clone all pois
+        const pois = this.state.pois.slice(0) // clone all pois
             .forEach(item => {
                 // and filter them
                 const isTopTenActive = this.state.navigationItems.filter(item => item.id === 'home')[0].isActive;
@@ -100,10 +99,7 @@ class App extends React.Component {
                 item.isFiltered = matchesType && isBookable;
             });
 
-        this.setState({
-            filteredPois: filteredPois.length > 0 ? filteredPois : this.state.pois.slice(0),
-            types: types
-        });
+        this.setState({pois, types});
     };
 
     componentDidMount() {
@@ -121,7 +117,7 @@ class App extends React.Component {
                 items.forEach(item => item.isFiltered = isTopTenActive && item.price > 0);
                 return items;
             })
-            .then(items => this.setState({pois: items, filteredPois: items}))
+            .then(items => this.setState({pois: items}))
     }
 
     render() {
@@ -137,7 +133,7 @@ class App extends React.Component {
                         <FiltersContainer
                             handleChange={this.handleChange}
                             items={this.state.types}
-                            resultCount={this.state.filteredPois.length}/>}
+                            resultCount={pois.length}/>}
                     <PoiListContainer items={pois} isSearchActive={isSearchActive}/>
                 </main>
             </div>
