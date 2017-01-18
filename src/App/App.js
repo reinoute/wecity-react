@@ -92,7 +92,13 @@ class App extends React.Component {
         const appliedFilters = types.filter(item => item.isFiltered).map(item => item.id);
 
         const filteredPois = this.state.pois.slice(0) // clone all pois
-            .filter(item => appliedFilters.indexOf(item.type) >= 0); // and filter them
+            .forEach(item => {
+                // and filter them
+                const isTopTenActive = this.state.navigationItems.filter(item => item.id === 'home')[0].isActive;
+                const matchesType = appliedFilters.indexOf(item.type) >= 0;
+                const isBookable = isTopTenActive && item.price > 0;
+                item.isFiltered = matchesType && isBookable;
+            });
 
         this.setState({
             filteredPois: filteredPois.length > 0 ? filteredPois : this.state.pois.slice(0),
@@ -111,16 +117,17 @@ class App extends React.Component {
 
         getPois()
             .then(items => {
-                // on home, only show pois that are bookable (price > 0)
-                if (isTopTenActive) {
-                    return items.filter(item => item.price > 0);
-                } else return items;
+                // in top10 context, only show pois that are bookable (price > 0)
+                items.forEach(item => item.isFiltered = isTopTenActive && item.price > 0);
+                return items;
             })
             .then(items => this.setState({pois: items, filteredPois: items}))
     }
 
     render() {
         const isSearchActive = this.state.navigationItems.filter(item => item.id === 'search')[0].isActive;
+        const filteredPois = this.state.pois.filter(item => item.isFiltered);
+        const pois = filteredPois.length > 0 ? filteredPois : this.state.pois;
 
         return (
             <div>
@@ -131,7 +138,7 @@ class App extends React.Component {
                             handleChange={this.handleChange}
                             items={this.state.types}
                             resultCount={this.state.filteredPois.length}/>}
-                    <PoiListContainer items={this.state.filteredPois} isSearchActive={isSearchActive}/>
+                    <PoiListContainer items={pois} isSearchActive={isSearchActive}/>
                 </main>
             </div>
         )

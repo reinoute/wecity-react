@@ -35,7 +35,8 @@ const fetchAllPois = () => {
                     facilities: (features && features.facility) ? features.facility : [],
                     labels: (features && features.label) ? features.label : [],
                     tags: (features && features.tag) ? features.tag : [],
-                    ticketInformation: item.ticketInformation
+                    ticketInformation: item.ticketInformation,
+                    isFiltered: false
                 }
             })
         })
