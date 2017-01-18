@@ -1,8 +1,12 @@
 .poi-list {
-  list-style: none;
-  margin: var(--margin-default) var(--margin-default) var(--margin-default) 0;
-  padding-left: 0;
-  text-align: center;
+  @apply --container;
+
+  &-items {
+    list-style: none;
+    margin: var(--margin-default) var(--margin-default) var(--margin-default) 0;
+    padding-left: 0;
+    text-align: center;
+  }
 
   &-item {
     display: inline-block;
