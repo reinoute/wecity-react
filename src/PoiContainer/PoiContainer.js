@@ -8,6 +8,7 @@ class PoiContainer extends React.Component {
         super();
 
         this.state = {
+            context: 'top10',
             details: {
                 facilities: [],
                 labels: [],
@@ -21,17 +22,17 @@ class PoiContainer extends React.Component {
 
     componentDidMount() {
         const id = this.props.params.id;
+        const context = this.props.pathname.includes('top10') ? 'top10' : 'search';
+
+        this.setState({context});
 
         getPoiById(id).then(item => {
             this.setState({details: item});
         })
     }
 
-    render() {
-        return (
-           <Poi details={this.state.details} />
-        )
-    }
+    render = () =>
+        <Poi details={this.state.details} context={this.state.context} />
 }
 
 export default PoiContainer;
