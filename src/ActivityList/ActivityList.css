@@ -1,4 +1,4 @@
-.poi-list {
+.activity-list {
   @apply --container;
 
   &-items {
@@ -28,7 +28,7 @@
     background: transparent;
     font: inherit;
     text-decoration: none;
-    cursor: pointer;
+    cursor: activitynter;
   }
 
   &-item-title {
@@ -42,7 +42,7 @@
   }
 
   &-item-details {
-    position: relative; /* for absolute position of .poi-list-item-price & .poi-list-item-type */
+    position: relative; /* for absolute position of .activity-list-item-price & .activity-list-item-type */
     background-size: cover;
 
     &:before {

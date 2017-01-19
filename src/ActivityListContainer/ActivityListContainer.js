@@ -2,12 +2,13 @@ import React from 'react';
 import { getActivities } from '../Storage/Storage';
 import ActivityList from '../ActivityList/ActivityList';
 
-class PoiListContainer extends React.Component {
+class ActivityListContainer extends React.Component {
     
     state = { items: [] }
     
     componentDidMount = () => {
         getActivities().then(items => this.setState({items}))
+        // todo: apply filters after retrieving items
     }
 
     render() {
@@ -15,4 +16,4 @@ class PoiListContainer extends React.Component {
     }
 }
 
-export default PoiListContainer;
+export default ActivityListContainer;
