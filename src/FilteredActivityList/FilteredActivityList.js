@@ -2,19 +2,19 @@ import React from 'react';
 import {Link} from 'react-router';
 import {formatPrice} from '../helpers';
 
-const PoiList = (props) => (
+const FilteredActivityList = (props) => (
     <div className="poi-list">
         <ul className="poi-list-items">
             { props.items.map(item => {
                 return (
-                    <PoiListItem key={item.id} details={item} isSearchActive={props.isSearchActive}/>
+                    <FilteredActivityListItem key={item.id} details={item} isSearchActive={props.isSearchActive}/>
                 )
             })}
         </ul>
     </div>
 );
 
-const PoiListItem = (props) => {
+const FilteredActivityListItem = (props) => {
     const backgroundImage = { backgroundImage: 'url(' + props.details.imgUrl + ')' };
 
     return (
@@ -35,4 +35,4 @@ const PoiListItem = (props) => {
     );
 }
 
-export default PoiList;
+export default FilteredActivityList;
