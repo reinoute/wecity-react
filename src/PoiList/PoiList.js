@@ -7,28 +7,32 @@ const PoiList = (props) => (
         <ul className="poi-list-items">
             { props.items.map(item => {
                 return (
-                    <li className="poi-list-item" key={ item.id }>
-                        <Link to={props.isSearchActive ? '/search/' + item.id : '/top10/' + item.id}
-                              className="poi-list-item-anchor">
-                            <h1 className="poi-list-item-title">{ item.title }</h1>
-                            <div className="poi-list-item-details">
-                                <img className="poi-list-item-img"
-                                     src={ item.imgUrl }
-                                     width="375" height="200"
-                                     alt={ item.title }/>
-                                <ul className="poi-list-item-labels">
-                                    <li className={"poi-list-item-type icon-" + item.type}>{ item.type }</li>
-                                    { item.price &&
-                                    <li className="poi-list-item-price">{ formatPrice(item.price) }</li> }
-                                    { item.skipTheLine && <li className="poi-list-item-skip">Skip the line</li> }
-                                </ul>
-                            </div>
-                        </Link>
-                    </li>
+                    <PoiListItem key={item.id} details={item} isSearchActive={props.isSearchActive}/>
                 )
             })}
         </ul>
     </div>
 );
+
+const PoiListItem = (props) => {
+    const backgroundImage = { backgroundImage: 'url(' + props.details.imgUrl + ')' };
+
+    return (
+        <li className="poi-list-item" key={ props.details.id }>
+            <Link to={props.isSearchActive ? '/search/' + props.details.id : '/top10/' + props.details.id}
+                  className="poi-list-item-anchor">
+                <h1 className="poi-list-item-title">{ props.details.title }</h1>
+                <div className="poi-list-item-details" style={backgroundImage}>
+                    <ul className="poi-list-item-labels">
+                        <li className={"poi-list-item-type icon-" + props.details.type}>{ props.details.type }</li>
+                        { props.details.price &&
+                        <li className="poi-list-item-price">{ formatPrice(props.details.price) }</li> }
+                        { props.details.skipTheLine && <li className="poi-list-item-skip">Skip the line</li> }
+                    </ul>
+                </div>
+            </Link>
+        </li>
+    );
+}
 
 export default PoiList;

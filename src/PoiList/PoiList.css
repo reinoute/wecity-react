@@ -43,6 +43,13 @@
 
   &-item-details {
     position: relative; /* for absolute position of .poi-list-item-price & .poi-list-item-type */
+    background-size: cover;
+
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 50%;
+    }
   }
 
   &-item-img {
