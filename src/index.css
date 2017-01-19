@@ -2,8 +2,5 @@
 @import "./App/App.css";
 
 /* list components alphabetically */
+@import "./ActivityList/ActivityList.css";
 @import "./Carousel/Carousel.css";
-@import "./Filters/Filters.css";
-@import "./Navigation/Navigation.css";
-@import "./Poi/Poi.css";
-@import "./PoiList/PoiList.css";

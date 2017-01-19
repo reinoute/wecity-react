@@ -1,5 +1,5 @@
 import React from 'react';
-import PoiListContainer from '../PoiListContainer/PoiListContainer';
+import PoiListContainer from '../ActivityListContainer/ActivityListContainer';
 
 class App extends React.Component {
 

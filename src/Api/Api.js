@@ -1,7 +1,7 @@
 const baseUrl = 'https://tst.wecity.amsterdam/wecity-3';
 const imgVariant = '?variant=detail-image';
 
-const fetchAllPois = () => {
+const fetchAllActivities = () => {
     const query = '/poi/search?count=5000&mode=LOCAL&locale=en&travelMode=walking';
 
     return fetch(baseUrl + query)
@@ -36,12 +36,11 @@ const fetchAllPois = () => {
                     facilities: (features && features.facility) ? features.facility : [],
                     labels: (features && features.label) ? features.label : [],
                     tags: (features && features.tag) ? features.tag : [],
-                    ticketInformation: item.ticketInformation,
-                    isFiltered: false
+                    ticketInformation: item.ticketInformation
                 }
             })
         )
         .catch(() => console.log(`Error fetching data from ${baseUrl}`));
 }
 
-export {fetchAllPois};
+export {fetchAllActivities};

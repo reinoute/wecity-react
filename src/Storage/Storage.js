@@ -1,46 +1,46 @@
-import {fetchAllPois} from '../Api/Api';
+import {fetchAllActivities} from '../Api/Api';
 import localforage from 'localforage';
 
 const ALL_POIS_KEY = "POIS";
 const LAST_UPDATED_KEY = "LAST_UPDATED";
 const ONE_DAY = 1000 * 60 * 60 * 24; // number of milliseconds in one day
 
-const updatePois = () =>
-        fetchAllPois() // fetch data from api
-            .then(pois => Promise.all([
-                localforage.setItem(ALL_POIS_KEY, pois),
+const updateActivities = () =>
+        fetchAllActivities() // fetch data from api
+            .then(activities => Promise.all([
+                localforage.setItem(ALL_POIS_KEY, activities),
                 localforage.setItem(LAST_UPDATED_KEY, Date.now())
             ]))
-            .then(values => values[0]) // return only the pois, not the timestamp
+            .then(values => values[0]) // return only the activities, not the timestamp
             .catch(error => console.log('Error updating local data: ', error));
 
-const getPois = () =>
+const getActivities = () =>
     Promise.all([
         localforage.getItem(ALL_POIS_KEY),
         localforage.getItem(LAST_UPDATED_KEY)
     ]).then(values => {
-        const pois = values[0];
+        const activities = values[0];
         const lastUpdated = values[1];
 
-        if (pois && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY) {
-            return pois;
-        } else return updatePois();
+        if (activities && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY) {
+            return activities;
+        } else return updateActivities();
     });
 
-const getPoiById = (id) =>
+const getActivityById = (id) =>
     Promise.all([
         localforage.getItem(ALL_POIS_KEY),
         localforage.getItem(LAST_UPDATED_KEY),
     ]).then(values => {
-        const pois = values[0];
+        const activities = values[0];
         const lastUpdated = values[1];
 
-        if (pois && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY)
-           return pois.filter(item => item.id === id)[0]
+        if (activities && lastUpdated && (Date.now() - lastUpdated) < ONE_DAY)
+           return activities.filter(item => item.id === id)[0]
         else {
-            return updatePois()
+            return updateActivities()
                 .then(data => data.filter(item => item.id === id)[0])
         }
     });
 
-export {getPois, getPoiById};
+export {getActivities, getActivityById};
