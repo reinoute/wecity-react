@@ -13,7 +13,7 @@ const fetchAllActivities = () => {
                 const location = item.location;
                 const openingHours = (item.openingHours && item.openingHours.times && Object.getOwnPropertyNames(item.openingHours.times).length) > 0 ? item.openingHours.times : '';
                 const coordinates = (location && location.coordinates) ? location.coordinates : [];
-                const info = item.ticketInformation ? item.ticketInformation[0] : '';
+                const info = item.ticketInformation && item.ticketInformation.length > 0 ? item.ticketInformation[0] : '';
                 const features = item.features;
 
                 return {
