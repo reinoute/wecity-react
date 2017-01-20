@@ -1,6 +1,7 @@
 /* import core styles */
-@import "./App/App.css";
+@import "App/App.css";
 
 /* list components alphabetically */
-@import "./ActivityList/ActivityList.css";
-@import "./Carousel/Carousel.css";
+@import "ActivityList/ActivityList.css";
+@import "Carousel/Carousel.css";
+@import "Filters/Filters.css";
