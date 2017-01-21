@@ -2,6 +2,7 @@ import React from 'react';
 import {getActivities} from '../Storage/Storage';
 import ActivityList from '../ActivityList/ActivityList';
 import FiltersContainer from '../FiltersContainer/FiltersContainer';
+import NavigationContainer from '../NavigationContainer/NavigationContainer';
 
 class App extends React.Component {
 
@@ -13,17 +14,21 @@ class App extends React.Component {
     }
 
     componentDidMount = () => {
-        const context = this.props.pathname.includes('top10') ? 'home' : 'search';
+        this.setContext();
 
         getActivities()
             .then(items =>
                 this.setState({
                     items,
-                    filteredItems: this.filterItems(items, []),
-                    context
+                    filteredItems: this.filterItems(items, [])
                 }));
     }
 
+    setContext = () => {
+        const context = this.props.pathname.includes('top10') ? 'home' : 'search';
+
+        this.setState({context});
+    }
 
     addActiveFilterKey = (key) => {
         const keys = this.state.activeFilterKeys.slice(0); // clone keys
@@ -60,6 +65,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <NavigationContainer path={this.props.pathname}/>
                 { this.state.context === 'search' &&
                     <FiltersContainer
                         addActiveFilterKey={this.addActiveFilterKey}
