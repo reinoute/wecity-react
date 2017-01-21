@@ -6,7 +6,7 @@ const Filters = (props) => (
             <div className="filters-header">
                 <div className="filters-header-container">
                     <div className="filters-result-count">
-                        x results
+                        {props.resultCount} results
                     </div>
                     <div className="filters-toggle">
                         <button className="filters-button-toggle button-link" type="button"

@@ -61,7 +61,8 @@ class App extends React.Component {
                 { this.props.pathname === '/search' &&
                     <FiltersContainer
                         addActiveFilterKey={this.addActiveFilterKey}
-                        removeActiveFilterKey={this.removeActiveFilterKey}/>
+                        removeActiveFilterKey={this.removeActiveFilterKey}
+                        resultCount={this.state.filteredItems.length}/>
                 }
                 <ActivityList items={this.state.filteredItems} path={this.props.pathname}/>
             </div>

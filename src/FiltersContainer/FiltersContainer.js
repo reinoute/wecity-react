@@ -105,7 +105,8 @@ class FiltersContainer extends React.Component {
                     toggleTypeFilterOption={this.toggleTypeFilterOption}
                     isExpanded={this.state.isExpanded}
                     toggleExpand={this.toggleExpand}
-                    filterCount={this.state.filterCount}/>
+                    filterCount={this.state.filterCount}
+                    resultCount={this.props.resultCount}/>
             </div>
         )
     }
