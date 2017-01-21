@@ -7,7 +7,7 @@ const ActivityList = (props) => (
         <ul className="activity-list-items">
             { props.items.map(item => {
                 return (
-                    <ActivityListItem key={item.id} details={item} isSearchActive={props.isSearchActive}/>
+                    <ActivityListItem key={item.id} details={item} path={props.path}/>
                 )
             })}
         </ul>
@@ -19,7 +19,7 @@ const ActivityListItem = (props) => {
 
     return (
         <li className="activity-list-item" key={ props.details.id }>
-            <Link to={props.isSearchActive ? '/search/' + props.details.id : '/top10/' + props.details.id}
+            <Link to={props.path + '/' + props.details.id}
                   className="activity-list-item-anchor">
                 <h1 className="activity-list-item-title">{ props.details.title }</h1>
                 <div className="activity-list-item-details" style={backgroundImage}>

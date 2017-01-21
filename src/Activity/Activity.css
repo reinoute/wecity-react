@@ -1,0 +1,152 @@
+.activity {
+
+  &-header {
+    background-color: var(--grey-darkest);
+    color: white;
+    line-height: 3;
+  }
+
+  &-anchor-back {
+    display: inline-block;
+    padding-left: var(--padding-default);
+    padding-right: var(--padding-large);
+    text-decoration: none;
+
+    &:hover,
+    &:visited {
+      color: white;
+    }
+  }
+
+  &-body {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--padding-default);
+    background-color: white;
+  }
+
+  &-summary {
+
+    & > * {
+      margin-bottom: var(--margin-small);
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+  }
+
+  .button-primary {
+    margin-bottom: 16px;
+  }
+
+  &-skiptheline {
+    position: relative; /* for absolute position of triangle */
+    padding: var(--padding-default);
+    border: 1px solid var(--yellow);
+    background-color: var(--yellow-lightest);
+    max-width: 25em;
+
+    /* caret */
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: transparent;
+    }
+
+    &:before {
+      top: -32px;
+      left: 16px;
+      border-width: 16px;
+      border-bottom-color: var(--yellow);
+    }
+
+    /* caret borer */
+    &:after {
+      top: -28px;
+      left: 18px;
+      border-width: 14px;
+      border-bottom-color: var(--yellow-lightest);
+    }
+  }
+
+  &-skiptheline-title {
+    font-weight: bold;
+  }
+
+  &-ticket-list {
+    display: inline;
+    list-style: none;
+    margin-bottom: var(--margin-small);
+    padding-left: 0;
+  }
+
+  &-ticket-item {
+    display: inline-block;
+    margin-right: var(--margin-default);
+
+    &:not(:first-of-type) {
+      display: block;
+      margin-left: 26px;
+    }
+  }
+
+  &-icon {
+    margin-right: var(--margin-small);
+
+    &:before {
+      font-size: 1.25em;
+    }
+  }
+
+  &-type-text {
+    text-transform: uppercase;
+  }
+
+  &-ticket-price {
+    font-weight: bold;
+  }
+
+  &-subtitle {
+    margin-bottom: var(--margin-small);
+  }
+
+  &-about-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &-about-item {
+    position: relative; /* for absolute position of icon */
+    padding-left: var(--padding-large);
+
+    &:not(:last-of-type) {
+      margin-bottom: var(--margin-small);
+    }
+
+    &:before {
+      position: absolute;
+      left: 0;
+      font-size: 1.25em;
+    }
+  }
+
+  &-tag-list {
+    display: inline;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &-tag-item {
+    display: inline;
+
+    &:not(:last-of-type):after {
+      content: ", ";
+    }
+  }
+}

@@ -2,6 +2,7 @@
 @import "App/App.css";
 
 /* list components alphabetically */
+@import "Activity/Activity.css";
 @import "ActivityList/ActivityList.css";
 @import "Carousel/Carousel.css";
 @import "Filters/Filters.css";

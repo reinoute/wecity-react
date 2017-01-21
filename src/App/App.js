@@ -71,7 +71,7 @@ class App extends React.Component {
                         addActiveFilterKey={this.addActiveFilterKey}
                         removeActiveFilterKey={this.removeActiveFilterKey}/>
                 }
-                <ActivityList items={this.state.filteredItems}/>
+                <ActivityList items={this.state.filteredItems} path={this.props.pathname}/>
             </div>
         )
     }
