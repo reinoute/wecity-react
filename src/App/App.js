@@ -7,14 +7,12 @@ import NavigationContainer from '../NavigationContainer/NavigationContainer';
 class App extends React.Component {
 
     state = {
-        context: 'home',
         items: [],
         filteredItems: [],
         activeFilterKeys: []
     }
 
     componentDidMount = () => {
-        this.setContext();
 
         getActivities()
             .then(items =>
@@ -22,12 +20,6 @@ class App extends React.Component {
                     items,
                     filteredItems: this.filterItems(items, [])
                 }));
-    }
-
-    setContext = () => {
-        const context = this.props.pathname.includes('top10') ? 'home' : 'search';
-
-        this.setState({context});
     }
 
     addActiveFilterKey = (key) => {
@@ -51,7 +43,7 @@ class App extends React.Component {
     }
 
     filterItems = (items, filterKeys) => {
-        const onlyBookableActivities = this.props.pathname.includes('top10')
+        const onlyBookableActivities = this.props.pathname.includes('top10');
         const filteredItems = items
             // in top10 context, filter on items that are bookable
             .filter(item => onlyBookableActivities ? item.isBookable : true)
@@ -66,7 +58,7 @@ class App extends React.Component {
         return (
             <div>
                 <NavigationContainer path={this.props.pathname}/>
-                { this.state.context === 'search' &&
+                { this.props.pathname === '/search' &&
                     <FiltersContainer
                         addActiveFilterKey={this.addActiveFilterKey}
                         removeActiveFilterKey={this.removeActiveFilterKey}/>
