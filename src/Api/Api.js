@@ -1,4 +1,4 @@
-const baseUrl = 'https://tst.wecity.amsterdam/wecity-3';
+const baseUrl = 'https://app.wecity.amsterdam/wecity-3';
 const imgVariant = '?variant=detail-image';
 
 const fetchAllActivities = () => {
