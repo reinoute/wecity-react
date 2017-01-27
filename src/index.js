@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {BrowserRouter, Match, Miss} from 'react-router';
+import {BrowserRouter, Match, Miss, Redirect} from 'react-router';
 
 import App from './App/App';
 import ActivityContainer from './ActivityContainer/ActivityContainer';
@@ -12,7 +12,7 @@ const Root = () => {
     return (
         <BrowserRouter>
             <div>
-                <Match exactly pattern="/" component={App}/>
+                <Match pattern="/" exactly render={() => <Redirect to="/top10"/>}/>
                 <Match exactly pattern="/top10" component={App}/>
                 <Match exactly pattern="/top10/:id" component={ActivityContainer}/>
                 <Match exactly pattern="/search" component={App}/>
